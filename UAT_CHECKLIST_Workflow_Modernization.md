@@ -4,6 +4,7 @@
 **Project Name:** Process Builder and Workflow Rule Modernization Initiative
 **Project Code:** PBWR-2026
 **Document Type:** User Acceptance Testing Checklist
+**Prepared by:** George Martin, Salesforce Technical Architect
 **Document Version:** 1.0
 **Date:** January 15, 2026
 **Status:** READY FOR UAT

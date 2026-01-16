@@ -1138,7 +1138,7 @@ npm run test:unit:debug
 ## Document Metadata
 
 - **Created:** 2026-01-15
-- **Author:** Claude (Anthropic AI)
+- **Author:** George Martin, Salesforce Technical Architect
 - **Purpose:** Architecture documentation for 2026 Technical Projects
 - **Target Audience:** Developers and Architects
 - **Version:** 1.0

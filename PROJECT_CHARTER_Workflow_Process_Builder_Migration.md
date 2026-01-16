@@ -1771,7 +1771,7 @@ Name: _________________________
 
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|
-| 1.0 | January 15, 2026 | Claude Code | Initial project charter created |
+| 1.0 | January 15, 2026 | George Martin | Initial project charter created |
 | | | | |
 | | | | |
 

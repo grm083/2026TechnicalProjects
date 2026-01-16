@@ -14,8 +14,8 @@
 
 | Version | Date | Author | Changes | Approver |
 |---------|------|--------|---------|----------|
-| 0.1 | January 15, 2026 | Claude Code | Initial Draft | - |
-| 1.0 | January 15, 2026 | Claude Code | Complete Design Document | [Pending] |
+| 0.1 | January 15, 2026 | George Martin | Initial Draft | - |
+| 1.0 | January 15, 2026 | George Martin | Complete Design Document | [Pending] |
 
 **Distribution List:**
 - Lead Developer
