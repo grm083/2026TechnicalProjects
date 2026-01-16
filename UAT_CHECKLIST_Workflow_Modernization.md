@@ -98,8 +98,11 @@ We have modernized the underlying technology that powers your Salesforce automat
 
 **Important Notes:**
 - This is NOT the production environment - it's safe to test!
-- Data in sandbox is a copy from [date] - recent records may not exist
+- **Data in sandbox is a COPY of production data** from [refresh date will be provided]
+- All your familiar Accounts, Contacts, Cases, and other records are available
+- Recent production records created after the refresh date will not be in the sandbox
 - Changes you make in sandbox will NOT affect production
+- You can use real customer names and data since this mirrors production
 
 ### 2.2 What You'll Need
 
@@ -114,6 +117,12 @@ We have modernized the underlying technology that powers your Salesforce automat
 - This checklist (print or keep open on second screen)
 - Your normal business processes and scenarios
 - Real examples of Cases, Work Orders, Quotes you typically create
+
+**Using Production Data for Testing:**
+- The sandbox contains actual production data, so you can test with familiar records
+- Feel free to use real Account names, Contact names, and Case numbers you recognize
+- When creating new test records, tag them clearly (e.g., "UAT Test - [Your Name] - [Date]")
+- You can modify existing records during testing - it won't affect production
 
 ### 2.3 How to Complete This Checklist
 
@@ -167,8 +176,8 @@ Notes: _______________
 1. Click on the **Cases** tab
 2. Click **New** button
 3. Fill in the following:
-   - **Account:** Select a test account (e.g., "Test Account ABC")
-   - **Contact:** Select a contact for the account
+   - **Account:** Select any familiar production account from the lookup
+   - **Contact:** Select a contact for that account
    - **Subject:** "UAT Test - New Service Case [Your Name] [Today's Date]"
    - **Status:** New
    - **Description:** "This is a test case for UAT"
@@ -458,7 +467,7 @@ _________________________________________________________________________
 2. Click **New Quote**
 3. Fill in required fields:
    - **Quote Name:** "UAT Test Quote [Your Name] [Date]"
-   - **Account:** Select test account
+   - **Account:** Select any familiar production account
    - **Status:** Draft
 4. Add at least one Product/Line Item
 5. Click **Save**
@@ -1040,24 +1049,39 @@ _________________________________________________________________________
 
 ---
 
-## APPENDIX A: TEST DATA REFERENCE
+## APPENDIX A: USING PRODUCTION DATA FOR TESTING
 
-### Sample Test Accounts
+### Production Data in Sandbox
 
-Use these test accounts for your testing (or create your own):
+The sandbox environment contains a **complete copy of production data**. This means:
 
-| Account Name | Type | Status |
-|--------------|------|--------|
-| Test Account Alpha | Customer | Active |
-| Test Account Beta | Customer | Active |
-| Test Account Gamma | Prospect | Active |
+**You Have Access To:**
+- All production Accounts you normally work with
+- All production Contacts from your business unit
+- Recent Cases, Work Orders, and Quotes (up to refresh date)
+- All active Business Rules and configurations
+- Your actual customers and their information
 
-### Sample Test Contacts
+### Selecting Records for Testing
 
-| Contact Name | Email | Phone | Account |
-|--------------|-------|-------|---------|
-| Test Contact One | test.contact1@example.com | 555-0101 | Test Account Alpha |
-| Test Contact Two | test.contact2@example.com | 555-0102 | Test Account Beta |
+**Best Practices:**
+1. **Use Familiar Records:** Choose Accounts/Contacts you recognize and work with regularly
+2. **Vary Your Selection:** Test with different:
+   - Account types (Customer, Partner, Prospect)
+   - Record types (if your org uses them)
+   - Geographic regions
+   - Business units
+3. **Mark Your Tests:** When creating new records, include "UAT Test - [Your Name] - [Date]" in the Subject/Name field
+
+**Example:**
+- Instead of "Test Account Alpha", use an actual production Account like "Acme Corporation" or "Smith Industries"
+- Instead of "Test Contact", use real Contact names from production data
+
+### Data Refresh Information
+
+**Sandbox Refresh Date:** [Will be provided by IT team]
+- All production records created/modified before this date are available
+- Records created after this date will not be in the sandbox
 
 ### Test Email Address
 

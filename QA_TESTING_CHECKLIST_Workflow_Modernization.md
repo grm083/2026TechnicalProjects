@@ -69,10 +69,17 @@ This comprehensive QA Testing Checklist provides Quality Assurance engineers wit
 
 ### 1.3 Test Data Requirements
 
-**Test Accounts:**
-- 5 test accounts with various configurations
-- Different record types, statuses, and field values
-- Related contacts, assets, work orders
+**Production Data Copy:**
+The QA environment contains a full copy of Production data, providing realistic test scenarios with actual business records. This approach ensures:
+- Testing against real-world data patterns and volumes
+- Validation of data migration and integration accuracy
+- Identification of edge cases present in production
+
+**Important Considerations:**
+- Production data may contain PII/sensitive information - follow data handling policies
+- Data is a point-in-time snapshot - recent production changes may not be reflected
+- Select appropriate production records for testing (various record types, statuses, configurations)
+- Avoid modifying critical production data copies unless necessary for testing
 
 **Test Users:**
 - Standard User profile
@@ -90,7 +97,7 @@ This comprehensive QA Testing Checklist provides Quality Assurance engineers wit
 Before testing begins:
 - [ ] All code deployed to sandbox
 - [ ] All Apex tests passing (90%+ coverage)
-- [ ] Test data created and validated
+- [ ] Production data copy refreshed and validated (within last 7 days)
 - [ ] External systems (Acorn, Genesys) available in QA
 - [ ] Monitoring dashboards configured
 - [ ] QA team trained on new automation
@@ -132,20 +139,29 @@ Before production deployment:
 - [ ] Genesys QA credentials validated
 - [ ] Test transactions successful to all external systems
 
-**Test Data Creation:**
+**Production Data Validation:**
 ```sql
--- Run these SOQL queries to verify test data exists
-SELECT COUNT() FROM Account WHERE Name LIKE 'Test%'
-SELECT COUNT() FROM Contact WHERE LastName LIKE 'Test%'
-SELECT COUNT() FROM Case WHERE Subject LIKE 'QA Test%'
-SELECT COUNT() FROM WorkOrder WHERE Subject LIKE 'QA Test%'
+-- Run these SOQL queries to validate production data copy
+SELECT COUNT() FROM Account WHERE IsDeleted = false
+SELECT COUNT() FROM Contact WHERE IsDeleted = false
+SELECT COUNT() FROM Case WHERE CreatedDate = LAST_N_DAYS:30
+SELECT COUNT() FROM WorkOrder WHERE CreatedDate = LAST_N_DAYS:30
+SELECT COUNT() FROM Quote WHERE CreatedDate = LAST_N_DAYS:30
+SELECT COUNT() FROM Business_Rule__c WHERE IsActive__c = true
 ```
 
 Expected Results:
-- [ ] At least 5 test Accounts
-- [ ] At least 10 test Contacts
-- [ ] No open Cases (start fresh)
-- [ ] No open Work Orders (start fresh)
+- [ ] Production data successfully copied (record counts match expectations)
+- [ ] Recent records visible (created within last 30 days prior to refresh)
+- [ ] Active business records available for testing
+- [ ] Data refresh date documented and communicated to QA team
+
+**Identifying Test Records:**
+Use existing production records with the following criteria:
+- Select Accounts/Contacts from various business units and regions
+- Choose records with different record types and statuses
+- Identify records that represent common business scenarios
+- Tag test transactions with "QA Test - [Date]" in Subject/Description fields for tracking
 
 ### 2.2 Test User Setup
 
