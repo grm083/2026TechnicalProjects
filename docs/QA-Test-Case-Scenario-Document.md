@@ -148,13 +148,12 @@ This document provides comprehensive test cases, scenarios, and procedures for v
 
 | Profile | Purpose | Test Scenarios |
 |---------|---------|----------------|
-| **System Administrator** | Full access testing | All administrative functions |
-| **Case Manager** | Case management testing | Case creation, updates, assignments |
-| **Service Technician** | Field service testing | Work order updates, completion |
-| **Sales User** | Quote and pricing testing | Quote creation, pricing requests |
-| **Service Agent** | Customer service testing | Case handling, task management |
-| **Read-Only User** | Permission testing | View-only access validation |
-| **Integration User** | API testing | External system integration |
+| **System Administrator** | Full access testing, integration testing | All administrative functions, API testing |
+| **Customer Service** | Case management and field service testing | Case creation, updates, assignments, work order processing |
+| **Customer Account Team** | Sales and escalation testing | Quote creation, pricing requests, customer escalations, inbound operations |
+| **Vendor Relations** | Fulfillment and vendor management testing | Quote fulfillment, vendor coordination, pricing approval |
+| **SSM (Service Supply Management)** | Fulfillment operations testing | Service delivery, supply management, quote processing |
+| **Digital Transformation Team** | Read-only access and reporting testing | View-only access validation, dashboard viewing, reporting |
 
 #### 3.2.2 Test User Creation Script
 
@@ -163,14 +162,21 @@ This document provides comprehensive test cases, scenarios, and procedures for v
 List<User> testUsers = new List<User>();
 
 // Create test users for each profile
-String[] profiles = new String[]{'System Administrator', 'Case Manager', 'Service Technician', 'Sales User', 'Service Agent'};
+String[] profiles = new String[]{
+    'System Administrator',
+    'Customer Service',
+    'Customer Account Team',
+    'Vendor Relations',
+    'SSM',
+    'Digital Transformation Team'
+};
 
 for (String profileName : profiles) {
     Profile p = [SELECT Id FROM Profile WHERE Name = :profileName LIMIT 1];
 
     User u = new User(
         Username = 'test.' + profileName.replaceAll(' ', '').toLowerCase() + '@company.test.com',
-        LastName = 'Test User',
+        LastName = 'Test User - ' + profileName,
         Email = 'test@company.com',
         Alias = profileName.left(4),
         TimeZoneSidKey = 'America/New_York',
@@ -188,61 +194,99 @@ System.debug('Test users created: ' + testUsers.size());
 
 ### 3.3 Test Data Requirements
 
-#### 3.3.1 Standard Test Data Sets
+#### 3.3.1 Production Data Copy Strategy
 
-**Required Test Data:**
+**IMPORTANT: This project uses production data copied to lower environments for testing.**
 
-1. **Accounts** (50 records)
-   - 25 Customer accounts
-   - 25 Vendor accounts
-   - Various record types
-   - Various industries
+**Test Data Source:**
+- Full sandbox environments contain a complete copy of production data
+- Test data is **NOT** created synthetically
+- All testing uses real production records in non-production environments
+- Data does **NOT** synchronize back to production
 
-2. **Contacts** (100 records)
-   - 2 contacts per account
-   - Various roles
-   - Various titles
+**Production Data Copy Includes:**
 
-3. **Cases** (200 records)
-   - Various record types
-   - Various statuses (Open, In Progress, Closed)
-   - Various priorities
-   - Various case origins
+1. **Accounts**
+   - Complete customer account records
+   - Complete vendor account records
+   - All record types and relationships
+   - Historical data preserved
 
-4. **Work Orders** (100 records)
-   - Various statuses
-   - Linked to cases
-   - Various service types
+2. **Contacts**
+   - All contact records with account relationships
+   - Contact roles and titles
+   - Email addresses (may be masked in sandbox)
 
-5. **Assets** (150 records)
-   - Linked to accounts
-   - Various product types
-   - Various statuses
+3. **Cases**
+   - Historical case records
+   - All record types and statuses
+   - Complete case history and timeline
+   - Related work orders and tasks
 
-6. **Tasks** (300 records)
-   - Various statuses
-   - Assigned to different users
-   - Various priorities
+4. **Work Orders**
+   - Production work order records
+   - Complete status history
+   - Technician assignments
+   - Service completion data
 
-7. **Quotes** (75 records)
-   - Various stages
-   - Various approval statuses
-   - Multiple quote lines
+5. **Assets**
+   - Complete asset inventory
+   - Asset-account relationships
+   - Asset history and tracking data
 
-8. **Business Rules** (50 records)
-   - Active and inactive
-   - Various criteria
-   - Various actions
+6. **Tasks**
+   - Task records (may be filtered by date)
+   - Assignment history
+   - Completion data
 
-#### 3.3.2 Test Data Creation Script
+7. **Quotes**
+   - Historical quotes
+   - Quote lines and pricing data
+   - Approval history
+   - Order conversions
 
-```bash
-# Load test data using SFDX
-sfdx force:data:tree:import --sobjecttreefiles data/test-accounts.json --targetusername <sandbox-alias>
-sfdx force:data:tree:import --sobjecttreefiles data/test-contacts.json --targetusername <sandbox-alias>
-sfdx force:data:tree:import --sobjecttreefiles data/test-cases.json --targetusername <sandbox-alias>
-sfdx force:data:tree:import --sobjecttreefiles data/test-workorders.json --targetusername <sandbox-alias>
-```
+8. **Business Rules**
+   - Active business rules from production
+   - Rule configurations and mappings
+   - Rule execution history
+
+#### 3.3.2 Test Data Validation
+
+**Before Testing Begins:**
+
+1. **Verify Sandbox Refresh Date**
+   ```sql
+   -- Check sandbox info
+   SELECT Id, Name, SandboxName, LicenseType, CreatedDate,
+          CopyProgress, ApexClassId
+   FROM SandboxInfo
+   WHERE SandboxName = 'FullSandbox'
+   ```
+
+2. **Validate Data Volume**
+   ```sql
+   -- Check record counts
+   SELECT COUNT() FROM Account
+   SELECT COUNT() FROM Case
+   SELECT COUNT() FROM WorkOrder
+   SELECT COUNT() FROM Quote
+   ```
+
+3. **Verify Key Relationships**
+   - Cases linked to accounts
+   - Work orders linked to cases
+   - Tasks linked to cases
+   - Assets linked to accounts
+
+4. **Data Masking Verification**
+   - Confirm email addresses masked (if applicable)
+   - Verify phone numbers masked (if applicable)
+   - Check PII masking rules applied
+
+**Data Refresh Schedule:**
+- Full sandbox should be refreshed before UAT phase begins
+- Recommend refresh within 1 week of UAT start date
+- Coordinate with Salesforce Admin for refresh timing
 
 ### 3.4 Integration Endpoint Configuration
 
@@ -283,7 +327,7 @@ Active: true
 
 | Test Case ID | Test Scenario | Test Steps | Expected Result | Priority |
 |--------------|---------------|------------|-----------------|----------|
-| CASE-001-01 | Create case via UI | 1. Login as Service Agent<br>2. Navigate to Cases tab<br>3. Click "New Case"<br>4. Fill required fields<br>5. Click Save | Case created successfully, Case number assigned | Critical |
+| CASE-001-01 | Create case via UI | 1. Login as Customer Service Representative<br>2. Navigate to Cases tab<br>3. Click "New Case"<br>4. Fill required fields<br>5. Click Save | Case created successfully, Case number assigned | Critical |
 | CASE-001-02 | Create case via quick action | 1. Open Account record<br>2. Click "New Case" quick action<br>3. Fill required fields<br>4. Click Save | Case created and linked to Account | Critical |
 | CASE-001-03 | Create case with Business Rules | 1. Create case with specific criteria<br>2. Save case | Business Rule evaluates correctly, appropriate actions triggered | Critical |
 | CASE-001-04 | Create multiple cases | 1. Use multiple case creation component<br>2. Enter data for 3 cases<br>3. Submit | All 3 cases created with proper data | High |
@@ -535,7 +579,7 @@ Active: true
 
 | Step | Action | Expected Result | Validation |
 |------|--------|-----------------|------------|
-| 1 | Create case from web-to-case | Case created with correct data | Verify case number, fields populated |
+| 1 | Create case from email-to-case | Case created with correct data | Verify case number, fields populated |
 | 2 | Business rule evaluates | Appropriate fields updated | Check field values match rule criteria |
 | 3 | Task automatically created | Task created and assigned | Verify task exists, correct assignee |
 | 4 | Work order created from case | WO created and linked | Check WO record, case link |
@@ -845,12 +889,12 @@ static void testCaseCreationPerformance() {
 4. Identify any usability issues
 
 **UAT Participants:**
-- Case Managers (3 users)
-- Service Agents (5 users)
-- Field Service Technicians (2 users)
-- Sales Representatives (2 users)
-- Supervisors/Managers (2 users)
-- System Administrators (1 user)
+- Customer Service Representatives (5 users) - Case management and field service
+- Customer Account Team users (3 users) - Sales, escalations, inbound operations
+- Vendor Relations users (2 users) - Quote fulfillment and vendor management
+- SSM (Service Supply Management) users (2 users) - Fulfillment operations
+- Digital Transformation Team users (2 users) - Read-only and reporting
+- System Administrators (1 user) - Administration and integration testing
 
 **UAT Duration:** 2 weeks (10 business days)
 
@@ -858,7 +902,7 @@ static void testCaseCreationPerformance() {
 
 #### UAT Scenario 1: Daily Case Management
 
-**Persona:** Service Agent
+**Persona:** Customer Service Representative
 **Duration:** 2 hours
 
 | Step | Action | Expected Outcome | Pass/Fail |
@@ -877,7 +921,7 @@ static void testCaseCreationPerformance() {
 
 #### UAT Scenario 2: Work Order Processing
 
-**Persona:** Field Service Coordinator
+**Persona:** Customer Service Representative (Field Service)
 **Duration:** 1.5 hours
 
 | Step | Action | Expected Outcome | Pass/Fail |
@@ -895,7 +939,7 @@ static void testCaseCreationPerformance() {
 
 #### UAT Scenario 3: Quote Creation and Approval
 
-**Persona:** Sales Representative
+**Persona:** Customer Account Team User
 **Duration:** 2 hours
 
 | Step | Action | Expected Outcome | Pass/Fail |
@@ -915,7 +959,7 @@ static void testCaseCreationPerformance() {
 
 #### UAT Scenario 4: Task Management
 
-**Persona:** Case Manager
+**Persona:** Customer Service Representative
 **Duration:** 1 hour
 
 | Step | Action | Expected Outcome | Pass/Fail |
@@ -1000,148 +1044,47 @@ static void testCaseCreationPerformance() {
 | Service Approver | 20 | 30 | Approval workflows |
 | User | 15 | 20 | Permission testing |
 
-### 9.2 Test Data Characteristics
+### 9.2 Production Data Usage Notes
 
-**Account Data:**
-- Mix of customer and vendor accounts
-- Various industries
-- Various record types
-- Active and inactive records
+**IMPORTANT:** All testing uses production data copied to sandbox environments.
 
-**Contact Data:**
-- Multiple contacts per account
-- Various roles (Decision Maker, Technical Contact, etc.)
-- Various titles
-- Email addresses (test domain)
+**Data Characteristics:**
+- **Real production records** are used for all testing
+- **Complete data relationships** are preserved from production
+- **Historical data** provides realistic test scenarios
+- **No synthetic data creation** is required
 
-**Case Data:**
-- Various record types (Service, Complaint, Request)
-- Various statuses (New, In Progress, On Hold, Closed)
-- Various priorities (Low, Medium, High, Critical)
-- Various origins (Email, Phone, Web, Chat)
-- Created across different dates (for aging tests)
+**Data Coverage Verification:**
 
-**Work Order Data:**
-- Linked to cases
-- Various statuses (New, Assigned, In Progress, Completed)
-- Various service types
-- Various technician assignments
+Before testing, verify the sandbox contains sufficient data diversity:
 
-**Task Data:**
-- Various types (Follow-up, Outbound Call, Email, etc.)
-- Various statuses (Not Started, In Progress, Completed)
-- Various priorities
-- Various due dates (overdue, today, future)
+```sql
+-- Verify account types
+SELECT Type, COUNT(Id) FROM Account GROUP BY Type
 
-### 9.3 Test Data Creation Scripts
+-- Verify case statuses
+SELECT Status, COUNT(Id) FROM Case GROUP BY Status
 
-#### Script 1: Create Test Accounts
+-- Verify work order statuses
+SELECT Status, COUNT(Id) FROM WorkOrder GROUP BY Status
 
-```apex
-// Execute in Anonymous Apex
-List<Account> accounts = new List<Account>();
+-- Verify quote stages
+SELECT SBQQ__Status__c, COUNT(Id) FROM SBQQ__Quote__c GROUP BY SBQQ__Status__c
 
-// Create customer accounts
-for(Integer i = 1; i <= 50; i++) {
-    Account acc = new Account(
-        Name = 'Test Customer ' + i,
-        Type = 'Customer',
-        Industry = (i % 3 == 0) ? 'Technology' : (i % 3 == 1) ? 'Healthcare' : 'Manufacturing',
-        Phone = '555-' + String.valueOf(1000 + i),
-        BillingCity = 'Test City ' + i,
-        BillingState = 'NY'
-    );
-    accounts.add(acc);
-}
-
-// Create vendor accounts
-for(Integer i = 1; i <= 25; i++) {
-    Account acc = new Account(
-        Name = 'Test Vendor ' + i,
-        Type = 'Vendor',
-        Industry = 'Services',
-        Phone = '555-' + String.valueOf(2000 + i),
-        BillingCity = 'Vendor City ' + i,
-        BillingState = 'CA'
-    );
-    accounts.add(acc);
-}
-
-insert accounts;
-System.debug('Created ' + accounts.size() + ' accounts');
+-- Verify business rules
+SELECT Active__c, COUNT(Id) FROM Business_Rule__c GROUP BY Active__c
 ```
 
-#### Script 2: Create Test Cases
+**Data Isolation:**
+- Changes made during testing remain in sandbox
+- No synchronization back to production
+- Can refresh sandbox if data integrity compromised
 
-```apex
-// Execute in Anonymous Apex
-List<Account> accounts = [SELECT Id FROM Account WHERE Type = 'Customer' LIMIT 50];
-List<Case> cases = new List<Case>();
-
-String[] statuses = new String[]{'New', 'In Progress', 'On Hold', 'Closed'};
-String[] priorities = new String[]{'Low', 'Medium', 'High', 'Critical'};
-String[] origins = new String[]{'Email', 'Phone', 'Web', 'Chat'};
-
-for(Integer i = 0; i < 200; i++) {
-    Case c = new Case(
-        Subject = 'Test Case ' + i,
-        AccountId = accounts[Math.mod(i, accounts.size())].Id,
-        Status = statuses[Math.mod(i, statuses.size())],
-        Priority = priorities[Math.mod(i, priorities.size())],
-        Origin = origins[Math.mod(i, origins.size())],
-        Description = 'Test case description for case ' + i
-    );
-    cases.add(c);
-}
-
-insert cases;
-System.debug('Created ' + cases.size() + ' cases');
-```
-
-#### Script 3: Create Test Work Orders
-
-```apex
-// Execute in Anonymous Apex
-List<Case> cases = [SELECT Id, AccountId FROM Case LIMIT 100];
-List<WorkOrder> workOrders = new List<WorkOrder>();
-
-String[] statuses = new String[]{'New', 'Assigned', 'In Progress', 'Completed'};
-
-for(Integer i = 0; i < cases.size(); i++) {
-    WorkOrder wo = new WorkOrder(
-        Subject = 'Test Work Order ' + i,
-        CaseId = cases[i].Id,
-        AccountId = cases[i].AccountId,
-        Status = statuses[Math.mod(i, statuses.size())],
-        Priority = (i % 2 == 0) ? 'High' : 'Medium'
-    );
-    workOrders.add(wo);
-}
-
-insert workOrders;
-System.debug('Created ' + workOrders.size() + ' work orders');
-```
-
-### 9.4 Test Data Cleanup
-
-**Post-Testing Cleanup Script:**
-
-```apex
-// WARNING: This deletes test data. Use carefully.
-// Execute in Anonymous Apex in TEST environment only
-
-// Delete test records (adjust SOQL as needed)
-List<Case> testCases = [SELECT Id FROM Case WHERE Subject LIKE 'Test Case%'];
-delete testCases;
-
-List<WorkOrder> testWOs = [SELECT Id FROM WorkOrder WHERE Subject LIKE 'Test Work Order%'];
-delete testWOs;
-
-List<Account> testAccounts = [SELECT Id FROM Account WHERE Name LIKE 'Test%'];
-delete testAccounts;
-
-System.debug('Test data cleanup complete');
-```
+**Data Sensitivity:**
+- PII data may be masked per sandbox configuration
+- Email addresses typically masked
+- Phone numbers may be masked
+- Follow company data security policies
 
 ---
 
