@@ -4,11 +4,17 @@
 
 This project addresses the excessive generation of Platform Events in the Salesforce organization due to missing bulkification patterns in Apex code. The initiative aims to reduce Platform Event volume by 80-95% through systematic code refactoring and implementation of best practices.
 
+**Document Author:** George Martin, Salesforce Technical Architect
+**Technical Lead:** George Martin
+**Document Version:** 1.1
+**Last Updated:** January 18, 2026
+
 ## Project Status
 
 **Status:** Analysis Phase Complete
 **Start Date:** January 18, 2026
 **Expected Completion:** Week of February 22, 2026 (5 weeks)
+**Estimated Budget:** $10,684
 
 ## Problem Statement
 
@@ -76,6 +82,20 @@ Salesforce Platform Event Reduction/
 **File:** `CaseHistoryTrackerTriggerHandler.cls`
 **Priority:** P3 - Reference only
 
+## Testing Environment Standards
+
+**All User Acceptance Testing (UAT) and Quality Assurance (QA) Testing will be performed in full copy sandboxes:**
+- Full copy sandboxes contain production data, eliminating the need for explicit test data creation
+- This ensures testing occurs with realistic data volumes and scenarios that mirror production
+- UAT sandbox will be refreshed from production prior to UAT phase (Week 4)
+- QA testing will occur in a dedicated full copy sandbox with production-like data and integrations
+
+**Testing Approach:**
+- Unit testing: 85%+ code coverage on all modified Apex classes
+- Integration testing: Validate Platform Event publishing and subscription patterns with production data volumes
+- Performance testing: Measure improvement in EventBus.publish() call reduction
+- UAT: Business validation of critical automation workflows
+
 ## Implementation Phases
 
 ### Phase 1: Critical Bulkification Fixes (Week 1-2)
@@ -125,6 +145,56 @@ Salesforce Platform Event Reduction/
 - **QA:** 1 QA Engineer (part-time, weeks 2-4)
 - **DevOps:** Deployment support (week 2, week 4)
 - **Business:** UAT testers (week 4)
+- **Technical Architect:** Oversight and code review (part-time, 5 weeks)
+- **Project Manager:** Coordination and reporting (part-time, 5 weeks)
+
+## Project Budget
+
+### Budget Breakdown
+
+| Category | Hours | Rate | Cost |
+|----------|-------|------|------|
+| **Senior Apex Developer (Offshore)** | 200 | $20/hr | $4,000 |
+| **QA Engineer (Offshore)** | 60 | $20/hr | $1,200 |
+| **DevOps Engineer (Offshore)** | 16 | $20/hr | $320 |
+| **Technical Architect (Onshore)** | 20 | $57.69/hr | $1,154 |
+| **Project Manager (Onshore)** | 20 | $57.69/hr | $1,154 |
+| **UAT Testers (Onshore)** | 40 | $24.04/hr | $962 |
+| **SUBTOTAL LABOR** | **356** | | **$8,790** |
+| **Monitoring Tools & Dashboards** | | | $500 |
+| **Contingency Reserve (15%)** | | | $1,394 |
+| **TOTAL PROJECT COST** | | | **$10,684** |
+
+**Rate Structure:**
+- Offshore Development and QA: $20/hour
+- Onshore Technical Architecture: $120,000/year ($57.69/hour)
+- Onshore Project Management: $120,000/year ($57.69/hour)
+- Onshore UAT: $50,000/year ($24.04/hour)
+
+### Return on Investment (ROI)
+
+**Project Benefits (3-Year Projection):**
+
+| Benefit Category | Year 1 | Year 2 | Year 3 | 3-Year Total |
+|------------------|--------|--------|--------|--------------|
+| **API Call Cost Reduction** | $8,000 | $10,000 | $12,000 | $30,000 |
+| **Performance Improvements** | $5,000 | $7,000 | $9,000 | $21,000 |
+| **Reduced Governor Limit Issues** | $4,000 | $6,000 | $8,000 | $18,000 |
+| **Improved System Reliability** | $3,000 | $5,000 | $7,000 | $15,000 |
+| **TOTAL BENEFITS** | **$20,000** | **$28,000** | **$36,000** | **$84,000** |
+
+**ROI Calculation:**
+- **Total Project Cost:** $10,684
+- **Total 3-Year Benefits:** $84,000
+- **Net Benefit:** $73,316
+- **ROI Percentage:** 686%
+- **Payback Period:** 6.4 months
+
+**Critical Business Value:**
+- 97.8% reduction in EventBus.publish() API calls
+- Eliminates data loss issues in CasetoQuoteAutomation trigger
+- Establishes standardized Platform Event best practices
+- Improves audit trail compliance
 
 ## Risk Assessment
 
