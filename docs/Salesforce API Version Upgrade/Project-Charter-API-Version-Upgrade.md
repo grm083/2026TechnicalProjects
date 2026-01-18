@@ -5,6 +5,7 @@
 **Project Code:** API-UPGRADE-2026
 **Charter Version:** 1.0
 **Charter Date:** 2026-01-17
+**Document Author:** George Martin, Salesforce Technical Architect
 **Project Sponsor:** [To be assigned]
 **Project Manager:** [To be assigned]
 **Technical Architect:** George Martin
@@ -43,8 +44,8 @@ This project will upgrade all Salesforce metadata components from legacy API ver
 | **Current API Version Range** | 38.0 to 64.0 (spanning 10 years) |
 | **Target API Version** | 65.0 (Winter '26) |
 | **Project Duration** | 18 weeks |
-| **Total Effort** | 1,217 hours |
-| **Estimated Cost** | $182,550 |
+| **Total Effort** | 2,072 hours |
+| **Estimated Cost** | $73,055 |
 | **Risk Level** | Medium (mitigated with phased approach) |
 | **Business Impact** | Critical - Affects all business processes |
 
@@ -185,11 +186,11 @@ The Salesforce API Version Upgrade project will systematically update all metada
 | **TOTAL** | **$140,000** | **$215,000** | **$300,000** | **$655,000** |
 
 **ROI Analysis:**
-- **Project Cost:** $182,550
+- **Project Cost:** $73,055
 - **3-Year Cost of Inaction:** $655,000
-- **Net Benefit:** $472,450
-- **ROI:** 259%
-- **Break-even:** 9.5 months
+- **Net Benefit:** $581,945
+- **ROI:** 797%
+- **Break-even:** 3.8 months
 
 ### 3.3 Strategic Value
 
@@ -354,7 +355,7 @@ The Salesforce API Version Upgrade project will systematically update all metada
 | **Limited Developer Resources** | 1.5 FTE maximum for development | High |
 | **QA Resource Sharing** | QA team shared across multiple projects | Medium |
 | **Business User Availability** | Limited time for UAT (2 weeks maximum) | Medium |
-| **Budget Cap** | $200,000 maximum (including contingency) | Medium |
+| **Budget Approved** | $73,055 (including contingency) | Low |
 
 #### 5.3.3 Technical Constraints
 
@@ -659,10 +660,15 @@ MS-001 → MS-002 → MS-003
 | **Developer Sandboxes (3)** | Individual development and testing | Weeks 1-16 | Included |
 | **Partial Sandbox** | Integration testing | Weeks 2-14 | Included |
 | **Full Sandbox** | Pre-UAT validation | Week 17 | Included |
-| **UAT Sandbox** | User acceptance testing | Week 18 | Included |
+| **UAT Sandbox (Full Copy)** | User acceptance testing | Week 18 | Included |
 | **Production** | Final deployment | Week 18 | N/A |
 
 **Note:** Sandbox refresh required Week 17 (before UAT)
+
+**Testing Environment Standards:**
+- All User Acceptance Testing (UAT) and Quality Assurance (QA) Testing will be performed in full copy sandboxes
+- Full copy sandboxes contain production data, eliminating the need for explicit test data creation
+- This ensures testing occurs with realistic data volumes and scenarios that mirror production
 
 #### 7.2.2 Development Tools
 
@@ -704,33 +710,35 @@ MS-001 → MS-002 → MS-003
 
 | Category | Hours | Rate | Cost |
 |----------|-------|------|------|
-| **Technical Architect** | 180 | $175/hr | $31,500 |
-| **Lead Developer** | 720 | $150/hr | $108,000 |
-| **Supporting Developer** | 320 | $125/hr | $40,000 |
-| **QA Engineer** | 356 | $100/hr | $35,600 |
-| **Project Manager** | 168 | $125/hr | $21,000 |
-| **Salesforce Admin** | 72 | $100/hr | $7,200 |
-| **Integration Specialist** | 16 | $150/hr | $2,400 |
-| **Business Users (UAT)** | 240 | $75/hr | $18,000 |
-| **SUBTOTAL LABOR** | **2,072** | | **$263,700** |
+| **Technical Architect (Onshore)** | 180 | $57.69/hr | $10,384 |
+| **Lead Developer (Offshore)** | 720 | $20/hr | $14,400 |
+| **Supporting Developer (Offshore)** | 320 | $20/hr | $6,400 |
+| **QA Engineer (Offshore)** | 356 | $20/hr | $7,120 |
+| **Project Manager (Onshore)** | 168 | $57.69/hr | $9,692 |
+| **Salesforce Admin (Offshore)** | 72 | $20/hr | $1,440 |
+| **Integration Specialist (Offshore)** | 16 | $20/hr | $320 |
+| **Business Users (UAT - Onshore)** | 240 | $24.04/hr | $5,770 |
+| **SUBTOTAL LABOR** | **2,072** | | **$55,526** |
 | **Tools & Licenses** | | | $5,000 |
 | **Training & Documentation** | | | $3,000 |
-| **Contingency Reserve (15%)** | | | $40,755 |
-| **TOTAL PROJECT COST** | | | **$312,455** |
+| **Contingency Reserve (15%)** | | | $9,529 |
+| **TOTAL PROJECT COST** | | | **$73,055** |
 
 #### 8.1.2 Cost Allocation by Phase
 
 | Phase | Labor Hours | Labor Cost | % of Budget |
 |-------|-------------|------------|-------------|
-| Phase 1 | 64 | $9,200 | 3.5% |
-| Phase 2 | 160 | $23,000 | 8.7% |
-| Phase 3 | 672 | $96,600 | 36.6% |
-| Phase 4 | 88 | $12,650 | 4.8% |
-| Phase 5 | 184 | $26,450 | 10.0% |
-| Phase 6 | 184 | $26,450 | 10.0% |
-| Phase 7 | 160 | $23,000 | 8.7% |
-| Phase 8 | 380 | $46,350 | 17.6% |
-| **TOTAL** | **1,892** | **$263,700** | **100%** |
+| Phase 1 | 64 | $1,715 | 3.1% |
+| Phase 2 | 160 | $4,288 | 7.7% |
+| Phase 3 | 672 | $18,010 | 32.4% |
+| Phase 4 | 88 | $2,358 | 4.2% |
+| Phase 5 | 184 | $4,931 | 8.9% |
+| Phase 6 | 184 | $4,931 | 8.9% |
+| Phase 7 | 160 | $4,288 | 7.7% |
+| Phase 8 | 380 | $10,184 | 18.3% |
+| **TOTAL** | **1,892** | **$50,705** | **91.3%** |
+
+*Note: Remaining 8.7% of budget allocated to tools, training, and contingency reserves.*
 
 ### 8.2 Return on Investment (ROI)
 
@@ -749,26 +757,26 @@ MS-001 → MS-002 → MS-003
 
 | Metric | Value |
 |--------|-------|
-| **Total Project Cost** | $312,455 |
+| **Total Project Cost** | $73,055 |
 | **Total 3-Year Benefits** | $655,000 |
-| **Net Benefit** | $342,545 |
-| **ROI Percentage** | 110% |
-| **Payback Period** | 13.5 months |
-| **Break-even Point** | Month 13.5 |
+| **Net Benefit** | $581,945 |
+| **ROI Percentage** | 797% |
+| **Payback Period** | 3.8 months |
+| **Break-even Point** | Month 3.8 |
 
 #### 8.2.3 Risk-Adjusted ROI
 
 **Conservative Scenario (70% of projected benefits):**
 - Total Benefits: $458,500
-- Net Benefit: $146,045
-- ROI: 47%
-- Payback Period: 19 months
+- Net Benefit: $385,445
+- ROI: 528%
+- Payback Period: 5.4 months
 
 **Worst Case Scenario (50% of projected benefits):**
 - Total Benefits: $327,500
-- Net Benefit: $15,045
-- ROI: 5%
-- Payback Period: 35 months
+- Net Benefit: $254,445
+- ROI: 348%
+- Payback Period: 8 months
 
 **Note:** Even in worst-case scenario, project still delivers positive ROI
 
@@ -776,9 +784,9 @@ MS-001 → MS-002 → MS-003
 
 | Approach | Cost | Duration | Risk | Recommendation |
 |----------|------|----------|------|----------------|
-| **Phased Upgrade (Proposed)** | $312,455 | 18 weeks | Medium | ✅ Recommended |
-| **Big Bang Upgrade** | $275,000 | 12 weeks | Very High | ❌ Not Recommended |
-| **Extended Timeline (24 weeks)** | $380,000 | 24 weeks | Low | ⚠️ Acceptable if resources limited |
+| **Phased Upgrade (Proposed)** | $73,055 | 18 weeks | Medium | ✅ Recommended |
+| **Big Bang Upgrade** | $65,000 | 12 weeks | Very High | ❌ Not Recommended |
+| **Extended Timeline (24 weeks)** | $95,000 | 24 weeks | Low | ⚠️ Acceptable if resources limited |
 | **Defer/Do Nothing** | $655,000 (3-year) | N/A | Critical | ❌ Unacceptable |
 
 ---

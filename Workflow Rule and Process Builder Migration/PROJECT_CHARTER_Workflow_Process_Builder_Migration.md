@@ -3,8 +3,10 @@
 
 **Project Name:** Process Builder and Workflow Rule Modernization Initiative
 **Project Code:** PBWR-2026
+**Document Author:** George Martin, Salesforce Technical Architect
 **Project Sponsor:** Technology Leadership
 **Project Manager:** [To Be Assigned]
+**Technical Architect:** George Martin
 **Document Version:** 1.0
 **Date:** January 15, 2026
 **Status:** DRAFT - Pending Approval
@@ -19,7 +21,10 @@ This project charter outlines the strategic initiative to migrate all active Pro
 - **Total Automation Items:** 26 files
 - **Active Process Builders:** 4 (7 are Draft/Inactive)
 - **Active Workflow Rules:** Approximately 22 active rules
-- **Estimated Effort:** 206-294 hours (3-4 months with testing)
+- **Estimated Effort:** 1,504 hours (16 weeks)
+- **Estimated Cost:** $39,666 (including contingency)
+- **Expected ROI:** 770% over 3 years
+- **Payback Period:** 6.0 months
 - **Business Impact:** CRITICAL - Affects case management, integrations, and quote processing
 
 ### Strategic Importance
@@ -638,11 +643,17 @@ Salesforce provides tools to accelerate migration:
 #### Week 1: Preparation
 
 **Step 1: Environment Setup**
-- [ ] Create dedicated migration sandbox (`MigrationDev`)
+- [ ] Create dedicated migration sandbox (`MigrationDev` - Full Copy)
 - [ ] Refresh sandbox from production
 - [ ] Install VS Code with Salesforce extensions
 - [ ] Clone Git repository
 - [ ] Create feature branch: `feature/pbwr-migration`
+
+**Testing Environment Standards:**
+- **All User Acceptance Testing (UAT) and Quality Assurance (QA) Testing will be performed in full copy sandboxes**
+- **Full copy sandboxes contain production data, eliminating the need for explicit test data creation**
+- **This ensures testing occurs with realistic data volumes and scenarios that mirror production**
+- **Dedicated UAT sandbox will be refreshed from production prior to UAT phase (Week 17)**
 
 **Step 2: Baseline Metrics**
 - [ ] Document current automation execution times (via Developer Console)
@@ -1471,6 +1482,53 @@ trigger CaseToAcornEventTrigger on CaseToAcornEvent__e (after insert) {
 
 **Total Resource Hours:** ~1,440 hours (includes overhead, meetings, retesting)
 
+### 6.4 Project Budget and Financial Analysis
+
+#### 6.4.1 Budget Breakdown
+
+| Category | Hours | Rate | Cost |
+|----------|-------|------|------|
+| **Lead Developer (Offshore)** | 512 | $20/hr | $10,240 |
+| **Developer 2 (Offshore)** | 288 | $20/hr | $5,760 |
+| **Developer 3 (Offshore)** | 160 | $20/hr | $3,200 |
+| **QA Engineer (Offshore)** | 240 | $20/hr | $4,800 |
+| **Salesforce Admin (Offshore)** | 160 | $20/hr | $3,200 |
+| **Integration Specialist (Offshore)** | 80 | $20/hr | $1,600 |
+| **Project Manager (Onshore)** | 64 | $57.69/hr | $3,692 |
+| **SUBTOTAL LABOR** | **1,504** | | **$32,492** |
+| **Tools & Testing** | | | $2,000 |
+| **Contingency Reserve (15%)** | | | $5,174 |
+| **TOTAL PROJECT COST** | | | **$39,666** |
+
+**Rate Structure:**
+- Offshore Development and QA: $20/hour
+- Onshore Project Management: $120,000/year ($57.69/hour)
+- Onshore Technical Architecture: $120,000/year ($57.69/hour)
+
+#### 6.4.2 Return on Investment (ROI)
+
+**Project Benefits (3-Year Projection):**
+
+| Benefit Category | Year 1 | Year 2 | Year 3 | 3-Year Total |
+|------------------|--------|--------|--------|--------------|
+| **Avoided Support Costs** | $30,000 | $45,000 | $60,000 | $135,000 |
+| **Integration Reliability Improvements** | $25,000 | $35,000 | $45,000 | $105,000 |
+| **Developer Productivity Gains** | $15,000 | $20,000 | $25,000 | $60,000 |
+| **Platform Event Volume Reduction** | $10,000 | $15,000 | $20,000 | $45,000 |
+| **TOTAL BENEFITS** | **$80,000** | **$115,000** | **$150,000** | **$345,000** |
+
+**ROI Calculation:**
+- **Total Project Cost:** $39,666
+- **Total 3-Year Benefits:** $345,000
+- **Net Benefit:** $305,334
+- **ROI Percentage:** 770%
+- **Payback Period:** 6.0 months
+
+**Strategic Rationale:**
+- **Mandatory Compliance:** Salesforce End of Support deadline (December 31, 2025) makes this migration non-optional
+- **Risk Mitigation:** Eliminates unsupported technology from production environment
+- **Platform Modernization:** Enables access to latest Salesforce automation capabilities
+
 ### 6.4 Risk-Adjusted Timeline
 
 **Optimistic Scenario:** 12 weeks (3 months)
@@ -1771,8 +1829,8 @@ Name: _________________________
 
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|
-| 1.0 | January 15, 2026 | George Martin | Initial project charter created |
-| | | | |
+| 1.0 | January 15, 2026 | George Martin, Salesforce Technical Architect | Initial project charter created |
+| 1.1 | January 18, 2026 | George Martin, Salesforce Technical Architect | Added financial analysis and budget estimates |
 | | | | |
 
 ---
