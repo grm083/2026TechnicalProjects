@@ -414,11 +414,11 @@ The project will be considered successful when all of the following criteria are
 
 | Stakeholder | Role | Interest | Influence | Engagement Strategy |
 |------------|------|----------|-----------|---------------------|
-| **CIO** | Executive Sponsor | Strategic alignment, ROI, risk management | High | Monthly executive briefings, decision escalation |
-| **VP of Sales** | Business Sponsor | Sales team productivity, minimal disruption | High | Bi-weekly updates, pilot participation |
-| **VP of Operations** | Business Sponsor | Customer service efficiency, compliance | High | Bi-weekly updates, pilot participation |
-| **CISO** | Security Oversight | Security posture, compliance, audit readiness | High | Weekly security reviews, architecture approval |
-| **VP of IT** | Technical Oversight | Integration success, resource allocation | High | Weekly project status, technical decision approval |
+| **Director of IT** | Executive Sponsor | Strategic alignment, ROI, risk management | High | Monthly executive briefings, decision escalation |
+| **Sales Director** | Business Sponsor | Sales team productivity, minimal disruption | High | Bi-weekly updates, pilot participation |
+| **VP of SBS** | Business Sponsor | Customer service efficiency, compliance | High | Bi-weekly updates, pilot participation |
+| **Principal Architect** | Security Oversight | Security posture, compliance, audit readiness | High | Weekly security reviews, architecture approval |
+| **Senior Manager of IT** | Technical Oversight | Integration success, resource allocation | High | Weekly project status, technical decision approval |
 
 #### Primary Stakeholders
 
@@ -464,7 +464,7 @@ The project will be considered successful when all of the following criteria are
 
 | Role | Name | Responsibilities | Time Commitment |
 |------|------|------------------|-----------------|
-| **Project Sponsor** | [VP of IT] | Executive oversight, budget approval, escalation resolution | 5% (2 hours/week) |
+| **Project Sponsor** | [Senior Manager of IT] | Executive oversight, budget approval, escalation resolution | 5% (2 hours/week) |
 | **Project Manager** | [TBD] | Overall project coordination, timeline management, stakeholder communication, risk management | 100% (40 hours/week) |
 | **Technical Lead / Architect** | George Martin | Technical architecture, permission set design, code review, integration architecture | 75% (30 hours/week) |
 | **Lead Salesforce Developer** | [TBD] | Apex development, API implementation, trigger development, testing | 100% (40 hours/week) |
@@ -491,11 +491,11 @@ The project will be considered successful when all of the following criteria are
 **Purpose:** Provide executive oversight, approve major decisions, resolve escalated issues
 
 **Members:**
-- CIO (Chair)
-- VP of Sales
-- VP of Operations
-- CISO
-- VP of IT
+- Director of IT (Chair)
+- Sales Director
+- VP of SBS
+- Principal Architect
+- Senior Manager of IT
 - Project Manager (non-voting)
 
 **Meeting Cadence:** Monthly (or as needed for urgent decisions)
@@ -1158,11 +1158,11 @@ This project charter requires approval from the following stakeholders before pr
 
 | Role | Name | Signature | Date |
 |------|------|-----------|------|
-| **Project Sponsor** | [VP of IT] | _________________ | _______ |
-| **Executive Sponsor** | [CIO] | _________________ | _______ |
-| **Business Sponsor - Sales** | [VP of Sales] | _________________ | _______ |
-| **Business Sponsor - Operations** | [VP of Operations] | _________________ | _______ |
-| **Security Oversight** | [CISO] | _________________ | _______ |
+| **Project Sponsor** | [Senior Manager of IT] | _________________ | _______ |
+| **Executive Sponsor** | [Director of IT] | _________________ | _______ |
+| **Business Sponsor - Sales** | [Sales Director] | _________________ | _______ |
+| **Business Sponsor - Operations** | [VP of SBS] | _________________ | _______ |
+| **Security Oversight** | [Principal Architect] | _________________ | _______ |
 | **Project Manager** | [TBD] | _________________ | _______ |
 | **Technical Lead** | George Martin, Salesforce Technical Architect | _________________ | _______ |
 
@@ -1265,11 +1265,11 @@ The following documents provide additional context and detail for this project:
 |------------|-------|-------|------|
 | **George Martin** | [email protected] | [phone] | Technical Lead / Architect |
 | [Project Manager] | [email] | [phone] | Project Manager |
-| [CIO] | [email] | [phone] | Executive Sponsor |
-| [VP of IT] | [email] | [phone] | Project Sponsor |
-| [VP of Sales] | [email] | [phone] | Business Sponsor |
-| [VP of Operations] | [email] | [phone] | Business Sponsor |
-| [CISO] | [email] | [phone] | Security Oversight |
+| [Director of IT] | [email] | [phone] | Executive Sponsor |
+| [Senior Manager of IT] | [email] | [phone] | Project Sponsor |
+| [Sales Director] | [email] | [phone] | Business Sponsor |
+| [VP of SBS] | [email] | [phone] | Business Sponsor |
+| [Principal Architect] | [email] | [phone] | Security Oversight |
 | [SailPoint Lead] | [email] | [phone] | SailPoint Team Lead |
 
 ### Appendix D: Project Charter Revision History
@@ -1327,7 +1327,7 @@ Salesforce Technical Architect
 Date: January 19, 2026
 
 **Awaiting Approval from:**
-- Executive Sponsor (CIO)
-- Project Sponsor (VP of IT)
-- Business Sponsors (VP of Sales, VP of Operations)
-- Security Oversight (CISO)
+- Executive Sponsor (Director of IT)
+- Project Sponsor (Senior Manager of IT)
+- Business Sponsors (Sales Director, VP of SBS)
+- Security Oversight (Principal Architect)
