@@ -737,33 +737,36 @@ The critical path includes the following sequential tasks:
 
 | Category | Estimated Cost | Budget Contingency (15%) | Total Allocated |
 |----------|---------------|-------------------------|-----------------|
-| **Internal Labor** | $95,000 | $14,250 | $109,250 |
+| **Internal Labor** | $135,334 | $20,300 | $155,634 |
 | **SailPoint Licensing** | $20,000 | $3,000 | $23,000 |
 | **Third-Party Services** | $5,000 | $750 | $5,750 |
 | **Training and Documentation** | $5,000 | $750 | $5,750 |
-| **TOTAL PROJECT BUDGET** | **$125,000** | **$18,750** | **$143,750** |
+| **TOTAL PROJECT BUDGET** | **$165,334** | **$24,800** | **$190,134** |
 
 ### Detailed Budget Breakdown
 
 #### Internal Labor Costs
 
+**Cost Rate Structure:**
+- **Development (Offshore):** $20/hour
+- **Technical Architecture (Onshore):** $120,000/year ($57.69/hour)
+- **Project Management (Onshore):** $120,000/year ($57.69/hour)
+- **QA Testing (Offshore):** $20/hour
+- **User Acceptance Testing (Onshore):** $50,000/year ($24.04/hour)
+
 | Role | Hours | Hourly Rate | Total Cost |
 |------|-------|-------------|------------|
-| Project Manager (100%, 20 weeks) | 800 | $85 | $68,000 |
-| Technical Lead / Architect (75%, 20 weeks) | 600 | $125 | $75,000 |
-| Lead Salesforce Developer (100%, 15 weeks) | 600 | $100 | $60,000 |
-| Salesforce Developer (75%, 15 weeks) | 450 | $90 | $40,500 |
-| Integration Specialist (50%, 4 weeks) | 80 | $100 | $8,000 |
-| Salesforce Administrator (50%, 12 weeks) | 240 | $75 | $18,000 |
-| QA Lead (50%, 16 weeks) | 320 | $80 | $25,600 |
-| Business Analyst (50%, 10 weeks) | 200 | $85 | $17,000 |
-| Change Manager (25%, 8 weeks) | 80 | $85 | $6,800 |
-| Security Architect (10%, 20 weeks) | 80 | $115 | $9,200 |
-| **Subtotal Internal Labor** | **3,450 hours** | **Blended: $92.75** | **$328,100** |
-
-**Note:** Blended rate includes benefits and overhead. Using standard IT department billing rates.
-
-**Allocated to Project:** Assuming 50% of roles are dedicated to this project vs. other work, effective cost to project: **$95,000**
+| Project Manager (100%, 20 weeks) | 800 | $57.69 | $46,152 |
+| Technical Lead / Architect (75%, 20 weeks) | 600 | $57.69 | $34,614 |
+| Lead Salesforce Developer (100%, 15 weeks) | 600 | $20.00 | $12,000 |
+| Salesforce Developer (75%, 15 weeks) | 450 | $20.00 | $9,000 |
+| Integration Specialist (50%, 4 weeks) | 80 | $20.00 | $1,600 |
+| Salesforce Administrator (50%, 12 weeks) | 240 | $20.00 | $4,800 |
+| QA Lead (50%, 16 weeks) | 320 | $20.00 | $6,400 |
+| Business Analyst (50%, 10 weeks) | 200 | $57.69 | $11,538 |
+| Change Manager (25%, 8 weeks) | 80 | $57.69 | $4,615 |
+| Security Architect (10%, 20 weeks) | 80 | $57.69 | $4,615 |
+| **Subtotal Internal Labor** | **3,450 hours** | **Blended: $39.23** | **$135,334** |
 
 #### SailPoint Licensing and Services
 
@@ -1008,7 +1011,7 @@ The project operates under the following constraints:
    - Technical Lead (George Martin) available at 75% capacity maximum
 
 5. **Budget:**
-   - Total approved budget: $143,750 (including 15% contingency)
+   - Total approved budget: $190,134 (including 15% contingency)
    - No additional budget available for overruns
    - Budget must cover internal labor, licensing, and all services
 
@@ -1182,7 +1185,7 @@ The approvers above confirm:
 By signing this project charter, the approvers authorize:
 
 1. **Resource Allocation:** Use of named resources at specified time commitments
-2. **Budget Authorization:** Expenditure up to $143,750 (including contingency)
+2. **Budget Authorization:** Expenditure up to $190,134 (including contingency)
 3. **Organizational Impact:** Temporary disruption during migration periods with proper communication
 4. **Decision Authority:** Project Manager and Technical Lead empowered to make day-to-day decisions within defined boundaries
 5. **Governance:** Steering Committee established with monthly meeting cadence
@@ -1276,6 +1279,7 @@ The following documents provide additional context and detail for this project:
 | 0.1 | 2026-01-15 | George Martin | Initial draft for internal review |
 | 0.5 | 2026-01-17 | George Martin | Incorporated feedback from technical team |
 | 1.0 | 2026-01-19 | George Martin | Final version for executive approval |
+| 1.1 | 2026-01-19 | George Martin | Updated budget with corrected organizational cost rates |
 
 ---
 
@@ -1285,7 +1289,7 @@ The following documents provide additional context and detail for this project:
 
 **Document Code:** SFDC-PSA-2026
 
-**Version:** 1.0
+**Version:** 1.1
 
 **Date:** January 19, 2026
 
