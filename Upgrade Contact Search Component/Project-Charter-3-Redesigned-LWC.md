@@ -5,6 +5,7 @@
 **Charter Date:** January 18, 2026
 **Charter Version:** 1.0
 **Project Status:** Proposed (Mutually Exclusive with CSC-LWC-ASIS-2026-002)
+**Document Author:** George Martin, Salesforce Technical Architect
 
 ---
 
@@ -430,6 +431,22 @@ This project reimagines the contact search experience using Lightning Web Compon
 - Video editing software
 - Screen recording tools
 
+#### Sandbox Testing Standards
+**All User Acceptance Testing (UAT) and Quality Assurance (QA) Testing will be performed in full copy sandboxes.**
+
+**Key Testing Environment Characteristics:**
+- Full copy sandboxes contain production data, eliminating the need for explicit test data creation
+- Testing occurs with realistic data volumes and scenarios that mirror production
+- Production data ensures accurate performance benchmarking
+- Real customer data allows validation of edge cases and complex scenarios
+- No test data creation required - leverages existing production data
+
+**Sandbox Refresh Requirements:**
+- UAT sandbox will be refreshed from production prior to UAT phase (Week 11)
+- Development sandbox refreshed at project start
+- Performance testing conducted on full copy sandbox with production data volumes
+- Usability testing can be conducted with anonymized production data
+
 ### Tools & Software
 - Visual Studio Code with Salesforce Extensions
 - Salesforce CLI (SFDX)
@@ -448,25 +465,34 @@ This project reimagines the contact search experience using Lightning Web Compon
 
 ## Budget & Financial Estimates
 
+### Cost Rate Structure
+
+**Standard Organizational Rates:**
+- **Development (Offshore):** $20/hour
+- **Technical Architecture (Onshore):** $120,000/year ($57.69/hour)
+- **Project Management (Onshore):** $120,000/year ($57.69/hour)
+- **QA Testing (Offshore):** $20/hour
+- **User Acceptance Testing (Onshore):** $50,000/year ($24.04/hour)
+
 ### Labor Costs
 
 | Role | Rate | Hours | Total |
 |------|------|-------|-------|
-| Senior UX Designer | $135/hr | 420 hrs (14 weeks × 30 hrs) | $56,700 |
-| UI Designer | $120/hr | 160 hrs (8 weeks × 20 hrs) | $19,200 |
-| UX Researcher | $125/hr | 60 hrs (3 weeks × 20 hrs) | $7,500 |
-| Senior LWC Developer | $140/hr | 560 hrs (14 weeks × 40 hrs) | $78,400 |
-| LWC Developer | $120/hr | 480 hrs (12 weeks × 40 hrs) | $57,600 |
-| LWC Developer (Part-time) | $120/hr | 160 hrs (8 weeks × 20 hrs) | $19,200 |
-| Technical Lead | $175/hr | 140 hrs (14 weeks × 10 hrs) | $24,500 |
-| QA Engineer | $100/hr | 240 hrs (6 weeks × 40 hrs) | $24,000 |
-| Accessibility Specialist | $130/hr | 80 hrs (2 weeks × 40 hrs) | $10,400 |
-| Performance Specialist | $135/hr | 10 hrs | $1,350 |
-| Salesforce Administrator | $110/hr | 140 hrs (14 weeks × 10 hrs) | $15,400 |
-| Business Analyst | $115/hr | 120 hrs (6 weeks × 20 hrs) | $13,800 |
-| Technical Writer | $105/hr | 80 hrs (4 weeks × 20 hrs) | $8,400 |
-| Instructional Designer | $110/hr | 20 hrs (2 weeks × 10 hrs) | $2,200 |
-| **Total Labor** | | **2,670 hours** | **$338,650** |
+| Senior UX Designer (Onshore) | $57.69/hr | 420 hrs (14 weeks × 30 hrs) | $24,230 |
+| UI Designer (Offshore) | $20/hr | 160 hrs (8 weeks × 20 hrs) | $3,200 |
+| UX Researcher (Onshore) | $57.69/hr | 60 hrs (3 weeks × 20 hrs) | $3,461 |
+| Senior LWC Developer (Offshore) | $20/hr | 560 hrs (14 weeks × 40 hrs) | $11,200 |
+| LWC Developer (Offshore) | $20/hr | 480 hrs (12 weeks × 40 hrs) | $9,600 |
+| LWC Developer Part-time (Offshore) | $20/hr | 160 hrs (8 weeks × 20 hrs) | $3,200 |
+| Technical Lead/Architect (Onshore) | $57.69/hr | 140 hrs (14 weeks × 10 hrs) | $8,077 |
+| QA Engineer (Offshore) | $20/hr | 240 hrs (6 weeks × 40 hrs) | $4,800 |
+| Accessibility Specialist (Onshore) | $57.69/hr | 80 hrs (2 weeks × 40 hrs) | $4,615 |
+| Performance Specialist (Offshore) | $20/hr | 10 hrs | $200 |
+| Salesforce Administrator (Offshore) | $20/hr | 140 hrs (14 weeks × 10 hrs) | $2,800 |
+| Business Analyst (Onshore) | $57.69/hr | 120 hrs (6 weeks × 20 hrs) | $6,923 |
+| Technical Writer (Offshore) | $20/hr | 80 hrs (4 weeks × 20 hrs) | $1,600 |
+| Instructional Designer (Onshore) | $57.69/hr | 20 hrs (2 weeks × 10 hrs) | $1,154 |
+| **Total Labor** | | **2,670 hours** | **$85,060** |
 
 ### Infrastructure & Tools
 
@@ -505,29 +531,29 @@ This project reimagines the contact search experience using Lightning Web Compon
 
 | Item | Cost | Notes |
 |------|------|-------|
-| Risk Buffer (15%) | $53,437 | Higher complexity warrants larger buffer |
-| Contingency Time (80 hours) | $11,200 | Senior Developer @ $140/hr |
-| UX Iteration Budget | $10,000 | Additional design rounds if needed |
-| **Total Contingency** | | **$74,637** |
+| Risk Buffer (15%) | $14,854 | Higher complexity warrants larger buffer |
+| Contingency Time (80 hours) | $1,600 | Offshore Developer @ $20/hr |
+| UX Iteration Budget | $5,000 | Additional design rounds if needed |
+| **Total Contingency** | | **$21,454** |
 
 ### Total Project Budget
 
 | Category | Amount |
 |----------|--------|
-| Labor | $338,650 |
+| Labor | $85,060 |
 | Infrastructure & Tools | $5,300 |
 | Research & Testing | $3,300 |
 | Training & Change Management | $9,500 |
-| Contingency | $74,637 |
-| **Total Project Cost** | **$431,387** |
+| Contingency | $21,454 |
+| **Total Project Cost** | **$124,614** |
 
 ### Budget Comparison
 
 | Project | Total Cost | Duration | Cost per Week |
 |---------|-----------|----------|---------------|
-| As-Is Migration (Project 2) | $131,770 | 8 weeks | $16,471 |
-| **This Project (Redesign)** | **$431,387** | **14 weeks** | **$30,813** |
-| **Difference** | **+$299,617 (227%)** | **+6 weeks** | **+87%** |
+| As-Is Migration (Project 2) | $27,542 | 8 weeks | $3,443 |
+| **This Project (Redesign)** | **$124,614** | **14 weeks** | **$8,901** |
+| **Difference** | **+$97,072 (352%)** | **+6 weeks** | **+159%** |
 
 ### Return on Investment (ROI)
 
@@ -557,9 +583,11 @@ This project reimagines the contact search experience using Lightning Web Compon
 - **Total: $472,750/year**
 
 **ROI Calculation:**
-- **Payback Period: 10-11 months**
-- **3-Year ROI: 228%** ($1.4M value - $431K cost)
-- **5-Year ROI: 448%** ($2.4M value - $431K cost)
+- **Total Project Cost:** $124,614
+- **Annual Benefits:** $472,750
+- **Payback Period:** 3.2 months (approximately 13 weeks)
+- **3-Year ROI:** 1,038% ($1.42M value - $125K cost = $1.29M net benefit)
+- **5-Year ROI:** 1,797% ($2.36M value - $125K cost = $2.24M net benefit)
 
 **Intangible Benefits:**
 - Improved user satisfaction and morale
@@ -963,7 +991,40 @@ This project reimagines the contact search experience using Lightning Web Compon
 
 ### Key Stakeholders
 
+**User Group Reference:** For detailed information on user groups, profiles, roles, and responsibilities, please refer to the [User Group Reference Documentation](../docs/User-Group-Reference.md).
+
 #### Business Stakeholders
+
+**Primary User Groups Affected:**
+
+1. **Customer Service Representatives** (Customer Service Profile)
+   - Primary users of contact search functionality for case and work order management
+   - Use contact search when creating cases, quotes, and managing customer interactions
+   - UAT participation required: 10-12 users (higher for redesign testing)
+   - Training required: 2-3 hours hands-on due to new UI patterns
+   - Usability testing participants: 8-10 users for iterative design validation
+
+2. **Sales Team Members** (Customer Account Team Profile)
+   - Secondary users of contact search for quote creation and customer management
+   - Use contact search for escalated customer interactions
+   - UAT participation required: 5-7 users
+   - Training required: 2 hours hands-on
+   - Usability testing participants: 3-5 users
+
+3. **Fulfillment Team Members** (SSM and Vendor Relations Profile)
+   - Use contact search for vendor and customer coordination
+   - UAT participation required: 3-5 users
+   - Training required: 2 hours hands-on
+   - Usability testing participants: 2-3 users
+
+**Total UAT Participants Required:** 20-25 users from primary user groups
+
+**Total Usability Testing Participants:** 15-20 users for iterative design validation
+
+**Training Note:** Due to significant UX changes with progressive disclosure pattern, comprehensive hands-on training is required for all user groups.
+
+#### Executive Stakeholders
+
 - **VP of Sales Operations**
   - Primary business sponsor
   - User adoption champion
@@ -1092,7 +1153,7 @@ This project reimagines the contact search experience using Lightning Web Compon
 ### Recommendation Matrix
 
 Choose **As-Is Migration (Project 2)** if:
-- ✅ Budget is limited (<$150K)
+- ✅ Budget is limited (<$30K)
 - ✅ Timeline is critical (<10 weeks)
 - ✅ Current UX is satisfactory
 - ✅ Users resistant to change
@@ -1100,7 +1161,7 @@ Choose **As-Is Migration (Project 2)** if:
 - ✅ Primary goal is framework modernization
 
 Choose **Redesign (This Project)** if:
-- ✅ Budget supports comprehensive improvement ($430K+)
+- ✅ Budget supports comprehensive improvement ($125K+)
 - ✅ Timeline allows 12-14 weeks
 - ✅ Current UX has documented issues
 - ✅ Users open to improvements

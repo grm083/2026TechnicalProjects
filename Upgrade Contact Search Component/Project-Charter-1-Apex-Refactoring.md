@@ -5,6 +5,7 @@
 **Charter Date:** January 18, 2026
 **Charter Version:** 1.0
 **Project Status:** Proposed
+**Document Author:** George Martin, Salesforce Technical Architect
 
 ---
 
@@ -223,6 +224,21 @@ This project focuses on refactoring the ContactSearchandCreate Apex class to add
 - Performance testing environment with production data volume
 - CI/CD pipeline integration (GitHub Actions)
 
+#### Sandbox Testing Standards
+**All User Acceptance Testing (UAT) and Quality Assurance (QA) Testing will be performed in full copy sandboxes.**
+
+**Key Testing Environment Characteristics:**
+- Full copy sandboxes contain production data, eliminating the need for explicit test data creation
+- Testing occurs with realistic data volumes and scenarios that mirror production
+- Production data ensures accurate performance benchmarking
+- Real customer data allows validation of edge cases and complex scenarios
+- No test data creation required - leverages existing production data
+
+**Sandbox Refresh Requirements:**
+- UAT sandbox will be refreshed from production prior to UAT phase (Week 5)
+- Development sandbox refreshed at project start
+- Performance testing conducted on full copy sandbox with production data volumes
+
 ### Tools & Software
 - Visual Studio Code with Salesforce Extensions
 - Salesforce CLI
@@ -235,19 +251,28 @@ This project focuses on refactoring the ContactSearchandCreate Apex class to add
 
 ## Budget & Financial Estimates
 
+### Cost Rate Structure
+
+**Standard Organizational Rates:**
+- **Development (Offshore):** $20/hour
+- **Technical Architecture (Onshore):** $120,000/year ($57.69/hour)
+- **Project Management (Onshore):** $120,000/year ($57.69/hour)
+- **QA Testing (Offshore):** $20/hour
+- **User Acceptance Testing (Onshore):** $50,000/year ($24.04/hour)
+
 ### Labor Costs
 
 | Role | Rate | Hours | Total |
 |------|------|-------|-------|
-| Senior Apex Developer | $150/hr | 240 hrs (6 weeks × 40 hrs) | $36,000 |
-| Apex Developer | $125/hr | 160 hrs (4 weeks × 40 hrs) | $20,000 |
-| Technical Lead | $175/hr | 60 hrs (6 weeks × 10 hrs) | $10,500 |
-| QA Engineer | $100/hr | 120 hrs (3 weeks × 40 hrs) | $12,000 |
-| Performance Testing Specialist | $135/hr | 20 hrs (0.5 weeks × 40 hrs) | $2,700 |
-| Salesforce Administrator | $110/hr | 60 hrs (6 weeks × 10 hrs) | $6,600 |
-| Business Analyst | $115/hr | 20 hrs (2 weeks × 10 hrs) | $2,300 |
-| Security Specialist | $160/hr | 4 hrs | $640 |
-| **Total Labor** | | **684 hours** | **$90,740** |
+| Senior Apex Developer (Offshore) | $20/hr | 240 hrs (6 weeks × 40 hrs) | $4,800 |
+| Apex Developer (Offshore) | $20/hr | 160 hrs (4 weeks × 40 hrs) | $3,200 |
+| Technical Lead/Architect (Onshore) | $57.69/hr | 60 hrs (6 weeks × 10 hrs) | $3,461 |
+| QA Engineer (Offshore) | $20/hr | 120 hrs (3 weeks × 40 hrs) | $2,400 |
+| Performance Testing Specialist (Offshore) | $20/hr | 20 hrs (0.5 weeks × 40 hrs) | $400 |
+| Salesforce Administrator (Offshore) | $20/hr | 60 hrs (6 weeks × 10 hrs) | $1,200 |
+| Business Analyst (Onshore) | $57.69/hr | 20 hrs (2 weeks × 10 hrs) | $1,154 |
+| Security Specialist (Onshore) | $57.69/hr | 4 hrs | $231 |
+| **Total Labor** | | **684 hours** | **$16,846** |
 
 ### Infrastructure & Tools
 
@@ -263,18 +288,18 @@ This project focuses on refactoring the ContactSearchandCreate Apex class to add
 
 | Item | Cost | Notes |
 |------|------|-------|
-| Risk Buffer (10%) | $9,154 | For unforeseen complexity |
-| Contingency Time (40 hours) | $5,500 | Senior Developer @ $150/hr |
-| **Total Contingency** | | **$14,654** |
+| Risk Buffer (15%) | $2,647 | For unforeseen complexity |
+| Contingency Time (40 hours) | $800 | Offshore Developer @ $20/hr |
+| **Total Contingency** | | **$3,447** |
 
 ### Total Project Budget
 
 | Category | Amount |
 |----------|--------|
-| Labor | $90,740 |
+| Labor | $16,846 |
 | Infrastructure | $800 |
-| Contingency | $14,654 |
-| **Total Project Cost** | **$106,194** |
+| Contingency | $3,447 |
+| **Total Project Cost** | **$21,093** |
 
 ### Return on Investment (ROI)
 
@@ -283,7 +308,13 @@ This project focuses on refactoring the ContactSearchandCreate Apex class to add
 - 70% faster searches = 2 minutes saved per search
 - Estimated 500 searches/day = 1,000 minutes/day saved
 - At $50/hour average user cost = $833/day = $216,580/year saved
-- **Payback Period:** ~6 months
+- **Payback Period:** ~0.4 months (less than 2 weeks)
+
+**ROI Calculation:**
+- **Total Project Cost:** $21,093
+- **Annual Benefits:** $218,980
+- **3-Year ROI:** 3,016%
+- **Break-even:** 0.4 months
 
 **Productivity Gains:**
 - Users complete contact search tasks 67% faster
@@ -444,15 +475,30 @@ This project focuses on refactoring the ContactSearchandCreate Apex class to add
 
 ### Key Stakeholders
 
+**User Group Reference:** For detailed information on user groups, profiles, roles, and responsibilities, please refer to the [User Group Reference Documentation](../docs/User-Group-Reference.md).
+
 #### Business Stakeholders
-- **Sales Operations Team**
-  - Primary users of contact search functionality
-  - UAT participation required
-  - Training and communication
-- **Customer Service Team**
-  - Secondary users
-  - Impact on case management workflows
-  - Feedback on performance improvements
+
+**Primary User Groups Affected:**
+
+1. **Customer Service Representatives** (Customer Service Profile)
+   - Primary users of contact search functionality for case and work order management
+   - Use contact search when creating cases, quotes, and managing customer interactions
+   - UAT participation required: 8-10 users
+   - Training required: 2 hours hands-on
+
+2. **Sales Team Members** (Customer Account Team Profile)
+   - Secondary users of contact search for quote creation and customer management
+   - Use contact search for escalated customer interactions
+   - UAT participation required: 3-5 users
+   - Training required: 1 hour overview
+
+3. **Fulfillment Team Members** (SSM and Vendor Relations Profile)
+   - Use contact search for vendor and customer coordination
+   - UAT participation required: 2-3 users
+   - Training required: 1 hour overview
+
+**Total UAT Participants Required:** 15-20 users from primary user groups
 
 #### Technical Stakeholders
 - **Salesforce Architecture Team**

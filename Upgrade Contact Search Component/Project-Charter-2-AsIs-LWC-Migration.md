@@ -5,6 +5,7 @@
 **Charter Date:** January 18, 2026
 **Charter Version:** 1.0
 **Project Status:** Proposed (Mutually Exclusive with CSC-LWC-REDESIGN-2026-003)
+**Document Author:** George Martin, Salesforce Technical Architect
 
 ---
 
@@ -274,6 +275,21 @@ This project focuses on migrating the SearchExistingContact Aura component to Li
 - Jest testing framework configured
 - VS Code with Salesforce Extensions
 
+#### Sandbox Testing Standards
+**All User Acceptance Testing (UAT) and Quality Assurance (QA) Testing will be performed in full copy sandboxes.**
+
+**Key Testing Environment Characteristics:**
+- Full copy sandboxes contain production data, eliminating the need for explicit test data creation
+- Testing occurs with realistic data volumes and scenarios that mirror production
+- Production data ensures accurate performance benchmarking
+- Real customer data allows validation of edge cases and complex scenarios
+- No test data creation required - leverages existing production data
+
+**Sandbox Refresh Requirements:**
+- UAT sandbox will be refreshed from production prior to UAT phase (Week 7)
+- Development sandbox refreshed at project start
+- Performance testing conducted on full copy sandbox with production data volumes
+
 ### Tools & Software
 - Visual Studio Code with Salesforce Extensions
 - Salesforce CLI (SFDX)
@@ -287,19 +303,28 @@ This project focuses on migrating the SearchExistingContact Aura component to Li
 
 ## Budget & Financial Estimates
 
+### Cost Rate Structure
+
+**Standard Organizational Rates:**
+- **Development (Offshore):** $20/hour
+- **Technical Architecture (Onshore):** $120,000/year ($57.69/hour)
+- **Project Management (Onshore):** $120,000/year ($57.69/hour)
+- **QA Testing (Offshore):** $20/hour
+- **User Acceptance Testing (Onshore):** $50,000/year ($24.04/hour)
+
 ### Labor Costs
 
 | Role | Rate | Hours | Total |
 |------|------|-------|-------|
-| Senior LWC Developer | $140/hr | 320 hrs (8 weeks × 40 hrs) | $44,800 |
-| LWC Developer | $120/hr | 240 hrs (6 weeks × 40 hrs) | $28,800 |
-| Technical Lead | $175/hr | 80 hrs (8 weeks × 10 hrs) | $14,000 |
-| QA Engineer | $100/hr | 120 hrs (3 weeks × 40 hrs) | $12,000 |
-| Accessibility Specialist | $130/hr | 20 hrs (0.5 weeks × 40 hrs) | $2,600 |
-| Salesforce Administrator | $110/hr | 80 hrs (8 weeks × 10 hrs) | $8,800 |
-| Business Analyst | $115/hr | 20 hrs (2 weeks × 10 hrs) | $2,300 |
-| UX Designer | $125/hr | 4 hrs | $500 |
-| **Total Labor** | | **884 hours** | **$113,800** |
+| Senior LWC Developer (Offshore) | $20/hr | 320 hrs (8 weeks × 40 hrs) | $6,400 |
+| LWC Developer (Offshore) | $20/hr | 240 hrs (6 weeks × 40 hrs) | $4,800 |
+| Technical Lead/Architect (Onshore) | $57.69/hr | 80 hrs (8 weeks × 10 hrs) | $4,615 |
+| QA Engineer (Offshore) | $20/hr | 120 hrs (3 weeks × 40 hrs) | $2,400 |
+| Accessibility Specialist (Onshore) | $57.69/hr | 20 hrs (0.5 weeks × 40 hrs) | $1,154 |
+| Salesforce Administrator (Offshore) | $20/hr | 80 hrs (8 weeks × 10 hrs) | $1,600 |
+| Business Analyst (Onshore) | $57.69/hr | 20 hrs (2 weeks × 10 hrs) | $1,154 |
+| UX Designer (Onshore) | $57.69/hr | 4 hrs | $231 |
+| **Total Labor** | | **884 hours** | **$22,354** |
 
 ### Infrastructure & Tools
 
@@ -315,27 +340,27 @@ This project focuses on migrating the SearchExistingContact Aura component to Li
 
 | Item | Cost | Notes |
 |------|------|-------|
-| Risk Buffer (10%) | $11,470 | For unforeseen complexity |
-| Contingency Time (40 hours) | $5,600 | Senior Developer @ $140/hr |
-| **Total Contingency** | | **$17,070** |
+| Risk Buffer (15%) | $3,488 | For unforeseen complexity |
+| Contingency Time (40 hours) | $800 | Offshore Developer @ $20/hr |
+| **Total Contingency** | | **$4,288** |
 
 ### Total Project Budget
 
 | Category | Amount |
 |----------|--------|
-| Labor | $113,800 |
+| Labor | $22,354 |
 | Infrastructure | $900 |
-| Contingency | $17,070 |
-| **Total Project Cost** | **$131,770** |
+| Contingency | $4,288 |
+| **Total Project Cost** | **$27,542** |
 
 ### Cost Comparison with Project 3 (Redesign)
 
 | Item | As-Is Migration (This) | Redesign (Project 3) | Difference |
 |------|----------------------|---------------------|------------|
 | Duration | 8 weeks | 12-14 weeks | +50-75% longer |
-| Labor Cost | $113,800 | $185,000 - $225,000 | +62-98% more |
-| Total Cost | $131,770 | $210,000 - $255,000 | +59-93% more |
-| Training Cost | Minimal | $15,000 - $25,000 | Significant |
+| Labor Cost | $22,354 | To Be Calculated | TBD |
+| Total Cost | $27,542 | To Be Calculated | TBD |
+| Training Cost | Minimal | To Be Calculated | Significant |
 
 ### Return on Investment (ROI)
 
@@ -345,7 +370,13 @@ This project focuses on migrating the SearchExistingContact Aura component to Li
 - At $50/hour average user cost = $104/day = $27,040/year saved
 - Reduced maintenance costs = $10,000/year (vs keeping Aura)
 - **Total Annual Savings:** $37,040/year
-- **Payback Period:** ~3.6 years
+- **Payback Period:** ~0.9 years (approximately 11 months)
+
+**ROI Calculation:**
+- **Total Project Cost:** $27,542
+- **Annual Benefits:** $37,040
+- **3-Year ROI:** 304%
+- **Break-even:** 11 months
 
 **Strategic Benefits:**
 - Future-proofed against Aura deprecation
@@ -547,15 +578,32 @@ This project focuses on migrating the SearchExistingContact Aura component to Li
 
 ### Key Stakeholders
 
+**User Group Reference:** For detailed information on user groups, profiles, roles, and responsibilities, please refer to the [User Group Reference Documentation](../docs/User-Group-Reference.md).
+
 #### Business Stakeholders
-- **Sales Operations Team**
-  - Primary users of contact search functionality
-  - UAT participation required
-  - Feedback on functional parity
-- **Customer Service Team**
-  - Secondary users
-  - Validate no workflow disruption
-  - Performance improvement feedback
+
+**Primary User Groups Affected:**
+
+1. **Customer Service Representatives** (Customer Service Profile)
+   - Primary users of contact search functionality for case and work order management
+   - Use contact search when creating cases, quotes, and managing customer interactions
+   - UAT participation required: 8-10 users
+   - Training required: Minimal (1 hour overview due to functional parity)
+
+2. **Sales Team Members** (Customer Account Team Profile)
+   - Secondary users of contact search for quote creation and customer management
+   - Use contact search for escalated customer interactions
+   - UAT participation required: 3-5 users
+   - Training required: Minimal (30 minute overview)
+
+3. **Fulfillment Team Members** (SSM and Vendor Relations Profile)
+   - Use contact search for vendor and customer coordination
+   - UAT participation required: 2-3 users
+   - Training required: Minimal (30 minute overview)
+
+**Total UAT Participants Required:** 15-20 users from primary user groups
+
+**Training Note:** Due to functional parity with existing Aura component, training requirements are minimal.
 
 #### Technical Stakeholders
 - **Salesforce Architecture Team**
