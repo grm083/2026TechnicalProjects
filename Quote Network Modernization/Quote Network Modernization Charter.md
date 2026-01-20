@@ -381,6 +381,80 @@ Constraint |  Description |  Impact
   
 * * *
 
+## 4.6 Detailed Budget Breakdown
+
+### Cost Rate Structure
+
+**Standard Organizational Rates:**
+- **Development (Offshore):** $20/hour
+- **Technical Architecture (Onshore):** $120,000/year ($57.69/hour)
+- **Project Management (Onshore):** $120,000/year ($57.69/hour)
+- **QA Testing (Offshore):** $20/hour
+- **User Acceptance Testing (Onshore):** $50,000/year ($24.04/hour)
+
+### Labor Costs by Role
+
+Based on resource allocation from Section 7.4 (1 FTE-month = 160 hours):
+
+| Role | FTE-Months | Hours | Rate | Total Cost | Notes |
+|------|------------|-------|------|------------|-------|
+| **Technical Lead (Onshore)** | 2.0 | 320 | $57.69/hr | $18,461 | Architecture and technical oversight |
+| **Senior Developers (Offshore)** | 7.0 | 1,120 | $20/hr | $22,400 | Core refactoring and service extraction |
+| **Mid-Level Developers (Offshore)** | 4.5 | 720 | $20/hr | $14,400 | Service implementation and testing |
+| **QA Engineers (Offshore)** | 3.0 | 480 | $20/hr | $9,600 | Integration and performance testing |
+| **Technical Writer (Offshore)** | 1.0 | 160 | $20/hr | $3,200 | Documentation and knowledge transfer |
+| **Project Manager (Onshore)** | 4.0 | 640 | $57.69/hr | $36,922 | Project coordination and stakeholder management |
+| **UAT Coordinators (Onshore)** | 0.5 | 80 | $24.04/hr | $1,923 | Business validation coordination |
+| **SUBTOTAL LABOR** | **22.0** | **3,520** | | **$106,906** | |
+
+### Additional Project Costs
+
+| Category | Cost | Notes |
+|----------|------|-------|
+| **Infrastructure & Environments** | $15,000 | Full copy sandboxes, performance testing environments |
+| **Development Tools** | $8,000 | Code quality tools, testing frameworks, monitoring |
+| **Training & Knowledge Transfer** | $12,000 | Team onboarding, documentation, workshops |
+| **External Consulting** | $25,000 | Salesforce performance optimization expertise |
+| **Change Management** | $8,000 | Communication, stakeholder engagement |
+| **SUBTOTAL ADDITIONAL COSTS** | **$68,000** | |
+
+### Contingency & Risk Management
+
+| Category | Percentage | Cost | Notes |
+|----------|------------|------|-------|
+| **Technical Risk Buffer** | 15% | $26,236 | Unforeseen complexity, performance tuning |
+| **Schedule Risk Buffer** | 10% | $17,491 | Resource availability, production support |
+| **SUBTOTAL CONTINGENCY** | **25%** | **$43,727** | |
+
+### Total Project Investment
+
+| Category | Amount |
+|----------|--------|
+| Labor Costs | $106,906 |
+| Additional Costs | $68,000 |
+| Contingency (25%) | $43,727 |
+| **TOTAL PROJECT INVESTMENT** | **$218,633** |
+
+### Budget Notes
+
+1. **Resource Mix:** Assumes primarily offshore development resources ($20/hr) with onshore architecture and project management leadership ($57.69/hr)
+2. **FTE Calculations:** Based on 1 FTE-month = 160 hours (4 weeks × 40 hours)
+3. **Contingency:** 25% contingency buffer accounts for technical complexity, legacy code challenges, and schedule risks
+4. **External Consulting:** Includes Salesforce-certified performance architect for optimization guidance
+5. **Phased Approach:** Costs distributed across 4-month timeline with feature flag strategy reducing deployment risk
+
+### ROI Recalculation
+
+| Metric | Amount |
+|--------|--------|
+| **Total Project Investment** | $218,633 |
+| **3-Year Total Benefits** | $3,660,000 |
+| **Net 3-Year Value** | $3,441,367 |
+| **ROI** | **1,575%** |
+| **Payback Period** | **2.5 months** |
+
+* * *
+
 ## 5\. Financial Benefits
 
 ### 5.1 Executive Financial Summary
