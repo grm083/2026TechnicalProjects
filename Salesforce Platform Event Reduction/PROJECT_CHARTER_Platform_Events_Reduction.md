@@ -438,14 +438,27 @@ Dev Team      QA Team    Deployment   Business SMEs
 
 ### Budget Summary
 
-| Category | Estimated Cost | Notes |
-|----------|---------------|-------|
-| **Labor - Development** | $32,000 | 1 Senior Developer × 5 weeks × $6,400/week |
-| **Labor - QA** | $7,200 | 1 QA Engineer × 60% × 3 weeks × $4,000/week |
-| **Labor - Project Management** | $8,000 | 1 PM × 5 weeks × $1,600/week |
-| **Labor - Other** | $2,400 | DevOps, BA, Admin support |
-| **Contingency (5%)** | $2,480 | Risk buffer for scope changes |
-| **Total Estimated Budget** | **$52,080** | |
+**Cost Rate Structure:**
+- Development (Offshore): $20/hour
+- Technical Architecture (Onshore): $120,000/year ($57.69/hour)
+- Project Management (Onshore): $120,000/year ($57.69/hour)
+- QA Testing (Offshore): $20/hour
+- User Acceptance Testing (Onshore): $50,000/year ($24.04/hour)
+
+| Category | Hours | Rate | Estimated Cost | Notes |
+|----------|-------|------|---------------|-------|
+| **Labor - Senior Apex Developer (Offshore)** | 200 | $20/hr | $4,000 | Code refactoring and testing |
+| **Labor - QA Engineer (Offshore)** | 72 | $20/hr | $1,440 | Testing and validation (60% × 3 weeks × 40 hrs) |
+| **Labor - Project Manager (Onshore)** | 200 | $57.69/hr | $11,538 | Project coordination and oversight |
+| **Labor - Technical Architect (Onshore)** | 80 | $57.69/hr | $4,615 | Architecture oversight and code review |
+| **Labor - DevOps Engineer (Offshore)** | 40 | $20/hr | $800 | Deployment support |
+| **Labor - Business Analyst (Onshore)** | 20 | $57.69/hr | $1,154 | Requirements and UAT coordination |
+| **Labor - Salesforce Admin (Offshore)** | 40 | $20/hr | $800 | Dashboard creation and monitoring setup |
+| **Labor - UAT Testers (Onshore)** | 24 | $24.04/hr | $577 | Business validation (3 users × 8 hrs) |
+| **SUBTOTAL LABOR** | **676** | | **$24,924** | |
+| **Tools & Monitoring** | | | $2,000 | Monitoring and testing tools |
+| **Contingency (15%)** | | | $4,039 | Risk buffer for scope changes |
+| **Total Estimated Budget** | | | **$30,963** | |
 
 ### Resource Requirements
 
