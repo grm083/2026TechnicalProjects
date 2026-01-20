@@ -1,8 +1,8 @@
 # 2026 Technical Projects Portfolio Summary
 
-**Document Date:** January 19, 2026
+**Document Date:** January 20, 2026
 **Author:** George Martin, Salesforce Technical Architect
-**Status:** Consolidated Portfolio View
+**Status:** Consolidated Portfolio View - Updated with Profile & Permission Realignment Project
 
 ---
 
@@ -14,16 +14,17 @@ This document consolidates all active and proposed technical projects for the 20
 
 | # | Project Name | Duration | Total Cost | Annual ROI | Priority |
 |---|--------------|----------|------------|------------|----------|
-| 1 | Contact Search Apex Refactoring | 6 weeks | $21,093 | $218,980/yr | **HIGH** |
-| 2 | Contact Search As-Is LWC Migration | 8 weeks | $27,542 | $37,040/yr | MEDIUM |
-| 3 | Contact Search Redesigned LWC | 14 weeks | $124,614 | $472,750/yr | MEDIUM |
-| 4 | Salesforce API Version Upgrade | 18 weeks | $73,055 | $140,000/yr (Y1) | **CRITICAL** |
-| 5 | Platform Event Volume Reduction | 5 weeks | $52,080 | Risk Avoidance | **HIGH** |
-| 6 | Workflow/Process Builder Migration | 16 weeks | $39,666 | $80,000/yr (Y1) | **CRITICAL** |
+| 1 | Workflow/Process Builder Migration | 16 weeks | $39,666 | $80,000/yr (Y1) | **CRITICAL** |
+| 2 | Salesforce API Version Upgrade | 18 weeks | $73,055 | $140,000/yr (Y1) | **CRITICAL** |
+| 3 | Platform Event Volume Reduction | 5 weeks | $52,080 | Risk Avoidance | **HIGH** |
+| 4 | Contact Search Apex Refactoring | 6 weeks | $21,093 | $218,980/yr | **HIGH** |
+| 5 | Profile & Permission Set Realignment | 20 weeks | $190,134 | $104,500/yr | **HIGH** |
+| 6 | Contact Search As-Is LWC Migration | 8 weeks | $27,542 | $37,040/yr | MEDIUM |
+| 7 | Contact Search Redesigned LWC | 14 weeks | $124,614 | $472,750/yr | MEDIUM |
 
-**Total Portfolio Investment:** $338,050
-**Total Annual Benefits (Year 1):** $948,770+
-**Combined Portfolio ROI:** 181% (first year)
+**Total Portfolio Investment:** $528,184
+**Total Annual Benefits (Year 1):** $1,053,270+
+**Combined Portfolio ROI:** 199% (first year)
 
 ---
 
@@ -114,6 +115,30 @@ This document consolidates all active and proposed technical projects for the 20
 - Payback Period: Immediate
 
 **Recommendation:** **START AFTER** Priority 1 projects OR run in parallel - addresses data loss
+
+---
+
+#### 2C. Profile and Permission Set Realignment with SailPoint Integration
+**Impact:** Security, Scalability & Operational Efficiency
+**Duration:** 20 weeks
+**Cost:** $190,134
+**Status:** Strategic Modernization with Compliance Benefits
+
+**Why High Priority:**
+- 94% reduction in profile maintenance (17 → 1 profile)
+- Automated user provisioning via SailPoint integration
+- Enhanced security through least-privilege access model
+- Aligns with Salesforce strategic direction (permission sets vs profiles)
+- Critical for scaling user base (expected to double within 2 years)
+- Improves SOX compliance and audit capabilities
+
+**Financial Impact:**
+- Annual Cost Savings: $104,500
+- ROI: 127-150% over 3 years
+- Payback Period: 15-20 months
+- Intangible benefits: improved security posture, faster onboarding (days → minutes)
+
+**Recommendation:** **START Q2 2026** after critical compliance projects - significant modernization effort with strong ROI
 
 ---
 
@@ -525,7 +550,100 @@ This document consolidates all active and proposed technical projects for the 20
 
 ---
 
-## PROJECT 6: Workflow Rule and Process Builder Migration
+## PROJECT 6: Profile and Permission Set Realignment with SailPoint Integration
+
+### Scope
+**In Scope:**
+- Reduce from 17 profiles to 1 minimal-access profile
+- Create 35 feature-based permission sets organized by business capability
+- Establish 8 persona-based permission set groups
+- Integrate with SailPoint IdentityIQ for automated user provisioning
+- Develop REST API endpoints for provisioning/deprovisioning
+- Migrate all 105 existing users to new permission model
+- Archive legacy profiles and implement governance process
+
+**Deliverables:**
+- 1 minimal-access baseline profile
+- 35 permission sets across 7 categories (Core Service, Quote/Pricing, Operations, Reporting, Systems, Admin, Specialized)
+- 8 permission set groups mapped to user personas
+- SailPoint integration with REST API and OAuth authentication
+- Comprehensive documentation and training materials
+
+**Out of Scope:**
+- Other IAM integrations beyond SailPoint
+- Sharing rules redesign or OWD changes
+- Community/Experience Cloud users
+- Third-party application permissions
+- Einstein Analytics permissions
+
+### Financial Benefits
+**Annual Cost Savings:**
+- Profile maintenance reduction: $37,500/year
+- Manual provisioning elimination: $25,000/year
+- User access support reduction: $12,000/year
+- Compliance audit efficiency: $10,000/year
+- User productivity improvements: $20,000/year
+
+**Total Annual Benefits:** $104,500
+
+**Investment:**
+- **Total Cost:** $190,134 (including 15% contingency)
+- **3-Year ROI:** 127-150%
+- **Payback Period:** 15-20 months
+- **3-Year NPV:** $175,000 - $225,000
+
+**Intangible Benefits:**
+- User onboarding reduced from 2-3 days to < 1 hour
+- Enhanced security posture (least-privilege model)
+- Improved SOX compliance and audit readiness
+- Scalable architecture for future growth
+- Reduced risk of data breaches from over-permissioned users
+
+### Timeline
+**Duration:** 20 weeks (February 1 - June 20, 2026)
+
+| Weeks | Phase | Key Deliverables |
+|-------|-------|------------------|
+| 1-2 | Foundation & Analysis | Current state documentation, persona validation, minimal-access profile design |
+| 3-8 | Permission Set Development | Create and test all 35 permission sets across 7 categories |
+| 9-10 | Permission Set Group Creation | Create 8 PSGs, pilot testing with 15-20 users |
+| 11-15 | SailPoint Integration Development | REST API, triggers, OAuth setup, 90%+ test coverage |
+| 16-17 | Integration Testing | End-to-end testing, SailPoint configuration, security review |
+| 18 | Pilot Deployment | Production deploy with 15-20 pilot users, monitoring and feedback |
+| 19-20 | Full User Migration | Migrate all 105 users in batches, legacy cleanup, documentation |
+
+### Resource Requirements
+
+| Role | FTE | Duration | Total Hours | Cost |
+|------|-----|----------|-------------|------|
+| Project Manager (Onshore) | 1.0 | 20 weeks | 800 hrs | $46,152 |
+| Technical Lead/Architect (Onshore) | 0.75 | 20 weeks | 600 hrs | $34,614 |
+| Lead Salesforce Developer (Offshore) | 1.0 | 15 weeks | 600 hrs | $12,000 |
+| Salesforce Developer (Offshore) | 0.75 | 15 weeks | 450 hrs | $9,000 |
+| Integration Specialist (Offshore) | 0.5 | 4 weeks | 80 hrs | $1,600 |
+| Salesforce Administrator (Offshore) | 0.5 | 12 weeks | 240 hrs | $4,800 |
+| QA Lead (Offshore) | 0.5 | 16 weeks | 320 hrs | $6,400 |
+| Business Analyst (Onshore) | 0.5 | 10 weeks | 200 hrs | $11,538 |
+| Change Manager (Onshore) | 0.25 | 8 weeks | 80 hrs | $4,615 |
+| Security Architect (Onshore) | 0.1 | 20 weeks | 80 hrs | $4,615 |
+| **Total** | | | **3,450 hours** | **$135,334** |
+
+**Additional Costs:**
+- SailPoint Licensing & Services: $20,000
+- Third-Party Services: $5,000
+- Training & Documentation: $5,000
+- Contingency (15%): $24,800
+- **Grand Total:** $190,134
+
+**Key Dependencies:**
+- SailPoint IdentityIQ operational and SailPoint team availability during integration phase
+- Full copy sandbox for testing
+- User availability for pilot testing and migration
+- No major organizational restructuring during project timeline
+
+---
+
+## PROJECT 7: Workflow Rule and Process Builder Migration
 
 ### Scope
 **In Scope:**
@@ -614,20 +732,20 @@ Week 1-18: API Version Upgrade (CRITICAL)
 ```
 
 **Rationale:**
-1. **API Upgrade (18 weeks):** Breaking changes threaten production stability
-2. **Workflow Migration (16 weeks):** Past End of Support deadline - compliance risk
+1. **Workflow Migration (16 weeks):** Past End of Support deadline - ALREADY OVERDUE - compliance risk
+2. **API Upgrade (18 weeks):** Breaking changes threaten production stability
 3. **Platform Event Reduction (5 weeks):** Currently losing data (98% drop rate)
 
 **Resource Requirements:**
-- **API Upgrade:** 2 developers + PM + QA (offshore/onshore mix)
 - **Workflow Migration:** 2-3 developers + PM + QA (offshore/onshore mix)
+- **API Upgrade:** 2 developers + PM + QA (offshore/onshore mix)
 - **Platform Event:** 1 developer + QA (5 weeks, offshore)
 
 **Total Q1 Investment:** $164,801 (API + Workflow + Platform Event)
 
 ---
 
-### Q2 2026 Start - HIGH VALUE
+### Q2 2026 Start - HIGH VALUE INITIATIVES
 
 #### Track 2: Contact Search Modernization (Sequential)
 ```
@@ -635,6 +753,13 @@ Week 1-6: Apex Refactoring (Phase 1) - PREREQUISITE
   └─ Then Choose ONE:
        Option A: Week 7-14: As-Is LWC Migration (8 weeks) [$27K]
        Option B: Week 7-20: Redesigned LWC (14 weeks) [$125K]
+```
+
+#### Track 3: Security & Access Management (Parallel with Track 2)
+```
+Week 1-20: Profile & Permission Set Realignment with SailPoint ($190K)
+  ├─ Can run parallel with Contact Search projects
+  └─ Requires dedicated PM + Technical Lead + 2 developers
 ```
 
 **Decision Matrix: As-Is vs Redesign**
@@ -654,7 +779,7 @@ Week 1-6: Apex Refactoring (Phase 1) - PREREQUISITE
 - **IF Budget Available:** Choose Redesign ($145,707 total for Phase 1 + 3)
   - **Why Redesign Wins:** 12.7x higher annual ROI ($472K vs $37K), payback in 3.2 months, transforms user experience
 
-**Q2 Investment (Phase 1 only):** $21,093
+**Q2 Investment (Contact Search Phase 1 only):** $21,093
 
 ---
 
@@ -664,8 +789,8 @@ Week 1-6: Apex Refactoring (Phase 1) - PREREQUISITE
 
 | Project | Duration | Cost | Annual ROI | Priority |
 |---------|----------|------|------------|----------|
-| API Version Upgrade | 18 weeks | $73,055 | $140,000 | CRITICAL |
 | Workflow/PB Migration | 16 weeks | $39,666 | $80,000 | CRITICAL |
+| API Version Upgrade | 18 weeks | $73,055 | $140,000 | CRITICAL |
 | Platform Event Reduction | 5 weeks | $52,080 | Risk Avoidance | HIGH |
 | **Q1 Total** | | **$164,801** | **$220,000+** | |
 
@@ -678,32 +803,40 @@ Week 1-6: Apex Refactoring (Phase 1) - PREREQUISITE
 | Project | Duration | Cost | Annual ROI | Priority |
 |---------|----------|------|------------|----------|
 | Contact Search Phase 1 (Apex) | 6 weeks | $21,093 | $218,980 | HIGH |
+| Profile & Permission Realignment | 20 weeks | $190,134 | $104,500 | HIGH |
 | **Followed by ONE of:** | | | | |
 | Option A: As-Is LWC Migration | 8 weeks | $27,542 | $37,040 | MEDIUM |
 | Option B: Redesigned LWC | 14 weeks | $124,614 | $472,750 | MEDIUM |
 
-**Q2 Total (with As-Is):** $48,635 | Annual ROI: $256,020
-**Q2 Total (with Redesign):** $145,707 | Annual ROI: $691,730
+**Q2 Total (with As-Is):** $238,769 | Annual ROI: $360,520
+**Q2 Total (with Redesign):** $335,841 | Annual ROI: $796,230
 
 ---
 
 ### Full Portfolio Cost & Benefits
 
-#### Scenario 1: Minimum Investment (Q1 Required + Q2 As-Is)
-- **Total Cost:** $213,436
-- **Year 1 Benefits:** $476,020
-- **Year 1 ROI:** 123%
-- **3-Year Benefits:** $1,428,060
-- **3-Year ROI:** 569%
+#### Scenario 1: Essential + Minimum Enhancement (Q1 Required + Q2 Profile/Permissions + Contact Search As-Is)
+- **Total Cost:** $403,570
+- **Year 1 Benefits:** $580,520
+- **Year 1 ROI:** 44%
+- **3-Year Benefits:** $1,741,560
+- **3-Year ROI:** 332%
 
-#### Scenario 2: Maximum Investment (Q1 Required + Q2 Redesign)
-- **Total Cost:** $310,508
-- **Year 1 Benefits:** $911,710
-- **Year 1 ROI:** 194%
-- **3-Year Benefits:** $2,733,750
-- **3-Year ROI:** 780%
+#### Scenario 2: Essential + High-Value Enhancement (Q1 Required + Q2 Profile/Permissions + Contact Search Redesign)
+- **Total Cost:** $500,642
+- **Year 1 Benefits:** $1,016,230
+- **Year 1 ROI:** 103%
+- **3-Year Benefits:** $3,048,250
+- **3-Year ROI:** 509%
 
-**Recommendation:** **Scenario 2 (Maximum Investment)** - Higher upfront cost delivers 2.8x more value over 3 years
+#### Scenario 3: Maximum Investment (All Projects)
+- **Total Cost:** $528,184
+- **Year 1 Benefits:** $1,053,270+
+- **Year 1 ROI:** 99%
+- **3-Year Benefits:** $3,159,810+
+- **3-Year ROI:** 498%
+
+**Recommendation:** **Scenario 2 (Essential + High-Value Enhancement)** - Optimal balance of compliance, security modernization, and high-ROI user experience improvements
 
 ---
 
@@ -774,11 +907,12 @@ Week 1-6: Apex Refactoring (Phase 1) - PREREQUISITE
 
 | Priority | Projects | Total Cost | Expected ROI (Year 1) |
 |----------|----------|------------|----------------------|
-| **Must Fund (Q1)** | API Upgrade + Workflow Migration + Platform Event | $164,801 | $220,000+ (134% ROI) |
-| **Should Fund (Q2)** | Contact Search Phase 1 + Redesign | $145,707 | $691,730 (375% ROI) |
-| **Grand Total** | | **$310,508** | **$911,730** |
+| **Must Fund (Q1)** | Workflow Migration + API Upgrade + Platform Event | $164,801 | $220,000+ (134% ROI) |
+| **Should Fund (Q2 - High Priority)** | Profile/Permissions + Contact Search Phase 1 + Redesign | $335,841 | $796,230 (137% ROI) |
+| **Optional (Q2 Alternative)** | As-Is LWC instead of Redesign (saves $97K, reduces ROI by $436K/yr) | $238,769 | $360,520 (51% ROI) |
+| **Grand Total (Recommended)** | | **$500,642** | **$1,016,230** |
 
-**3-Year Projected Value:** $2,733,750 (780% ROI)
+**3-Year Projected Value:** $3,048,250 (509% ROI)
 
 ---
 
@@ -789,12 +923,16 @@ This portfolio represents **mandatory compliance projects** combined with **high
 ✅ Eliminate technical debt and compliance risks
 ✅ Modernize the Salesforce platform to current standards
 ✅ Dramatically improve system performance and reliability
-✅ Deliver nearly $1M in annual productivity gains
+✅ Deliver over $1M in annual productivity and cost savings
 ✅ Position the organization for future scalability
+✅ Modernize security and access management for enterprise IAM integration
+✅ Enable automated user provisioning and role-based access control
 
-**The recommended investment of $310,508 will return $2.7M+ over 3 years - a 780% ROI.**
+**The recommended investment of $500,642 will return $3.0M+ over 3 years - a 509% ROI.**
 
 **Critical Path:** Start Q1 projects IMMEDIATELY (already behind on Workflow migration deadline)
+
+**Strategic Note:** The Profile and Permission Set Realignment project provides critical security modernization and sets the foundation for scalable growth, while the Contact Search redesign delivers exceptional user experience improvements with 3.2-month payback period.
 
 ---
 
@@ -803,6 +941,7 @@ This portfolio represents **mandatory compliance projects** combined with **high
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|
 | 1.0 | January 19, 2026 | George Martin | Initial consolidated portfolio summary |
+| 2.0 | January 20, 2026 | George Martin | Added Profile & Permission Set Realignment project, updated priorities based on urgency and ROI, recalculated portfolio totals |
 
 ---
 
@@ -811,12 +950,13 @@ This portfolio represents **mandatory compliance projects** combined with **high
 ### Appendix A: Detailed Budget Breakdown
 
 See individual project charters for complete budget details:
-- Contact Search Phase 1: Project-Charter-1-Apex-Refactoring.md
-- Contact Search Phase 2: Project-Charter-2-AsIs-LWC-Migration.md
-- Contact Search Phase 3: Project-Charter-3-Redesigned-LWC.md
-- API Version Upgrade: Project-Charter-API-Version-Upgrade.md
-- Platform Event Reduction: PROJECT_CHARTER_Platform_Events_Reduction.md
-- Workflow Migration: PROJECT_CHARTER_Workflow_Process_Builder_Migration.md
+- Contact Search Phase 1: Upgrade Contact Search Component/Project-Charter-1-Apex-Refactoring.md
+- Contact Search Phase 2: Upgrade Contact Search Component/Project-Charter-2-AsIs-LWC-Migration.md
+- Contact Search Phase 3: Upgrade Contact Search Component/Project-Charter-3-Redesigned-LWC.md
+- API Version Upgrade: docs/Salesforce API Version Upgrade/Project-Charter-API-Version-Upgrade.md
+- Platform Event Reduction: Salesforce Platform Event Reduction/PROJECT_CHARTER_Platform_Events_Reduction.md
+- Workflow Migration: Workflow Rule and Process Builder Migration/PROJECT_CHARTER_Workflow_Process_Builder_Migration.md
+- Profile & Permission Realignment: Profiles and Permissions/Project-Charter-Profile-Permission-Realignment.md
 
 ### Appendix B: Resource Rate Structure
 
@@ -837,20 +977,25 @@ See individual project charters for complete budget details:
 ### Appendix C: Dependencies Map
 
 ```
-API Version Upgrade (18 weeks)
-  └─ No dependencies, can start immediately
-
 Workflow/Process Builder Migration (16 weeks)
-  └─ No dependencies, MUST start immediately (overdue)
+  └─ No dependencies, MUST start immediately (OVERDUE - past Dec 31, 2025 deadline)
+
+API Version Upgrade (18 weeks)
+  └─ No dependencies, can start immediately (CRITICAL)
 
 Platform Event Volume Reduction (5 weeks)
-  └─ No dependencies, can start immediately
+  └─ No dependencies, can start immediately (HIGH - data loss occurring)
 
 Contact Search Apex Refactoring (6 weeks)
   └─ No dependencies, can start immediately
   └─ PREREQUISITE FOR:
        ├─ Contact Search As-Is LWC (8 weeks)
        └─ Contact Search Redesigned LWC (14 weeks)
+
+Profile & Permission Set Realignment (20 weeks)
+  └─ No technical dependencies, can start in Q2 2026
+  └─ Organizational dependency: SailPoint team availability during weeks 11-17
+  └─ Best started after Q1 critical projects to avoid resource conflicts
 ```
 
 ### Appendix D: Testing Standards
