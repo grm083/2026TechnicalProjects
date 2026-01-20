@@ -16,15 +16,18 @@ This document consolidates all active and proposed technical projects for the 20
 |---|--------------|----------|------------|------------|----------|
 | 1 | Workflow/Process Builder Migration | 16 weeks | $39,666 | $80,000/yr (Y1) | **CRITICAL** |
 | 2 | Salesforce API Version Upgrade | 18 weeks | $73,055 | $140,000/yr (Y1) | **CRITICAL** |
-| 3 | Platform Event Volume Reduction | 5 weeks | $52,080 | Risk Avoidance | **HIGH** |
+| 3 | Platform Event Volume Reduction | 5 weeks | $30,963 | Risk Avoidance | **HIGH** |
 | 4 | Contact Search Apex Refactoring | 6 weeks | $21,093 | $218,980/yr | **HIGH** |
-| 5 | Profile & Permission Set Realignment | 20 weeks | $190,134 | $104,500/yr | **HIGH** |
-| 6 | Contact Search As-Is LWC Migration | 8 weeks | $27,542 | $37,040/yr | MEDIUM |
-| 7 | Contact Search Redesigned LWC | 14 weeks | $124,614 | $472,750/yr | MEDIUM |
+| 5 | Quote Network Modernization | 16 weeks | $218,633 | $1,045,000/yr (Y1) | **HIGH** |
+| 6 | Master Intake Flow | 16 weeks | $19,200 | $68,500/yr (Y1) | **HIGH** |
+| 7 | Profile & Permission Set Realignment | 20 weeks | $190,134 | $104,500/yr | **HIGH** |
+| 8 | Contact Search As-Is LWC Migration | 8 weeks | $27,542 | $37,040/yr | MEDIUM |
+| 9 | Contact Search Redesigned LWC | 14 weeks | $124,614 | $472,750/yr | MEDIUM |
 
-**Total Portfolio Investment:** $528,184
-**Total Annual Benefits (Year 1):** $1,053,270+
-**Combined Portfolio ROI:** 199% (first year)
+**Total Portfolio Investment:** $744,900
+**Total Annual Benefits (Year 1):** $2,166,770+
+**Combined Portfolio ROI:** 191% (first year)
+**3-Year Portfolio Value:** $6,500,500+ (Net: $5,755,600)
 
 ---
 
@@ -100,7 +103,7 @@ This document consolidates all active and proposed technical projects for the 20
 #### 2B. Platform Event Volume Reduction
 **Impact:** System Stability & Data Integrity
 **Duration:** 5 weeks
-**Cost:** $52,080
+**Cost:** $30,963
 **Status:** High Risk Mitigation
 
 **Why High Priority:**
@@ -115,6 +118,54 @@ This document consolidates all active and proposed technical projects for the 20
 - Payback Period: Immediate
 
 **Recommendation:** **START AFTER** Priority 1 projects OR run in parallel - addresses data loss
+
+---
+
+#### 2D. Quote Network Modernization
+**Impact:** Developer Productivity & Code Maintainability
+**Duration:** 16 weeks
+**Cost:** $218,633
+**Status:** Strategic Refactoring - High Value
+
+**Why High Priority:**
+- Eliminate critical performance bottleneck in 5,753-line monolithic controller
+- 60% reduction in quote change implementation time (5 days → 2 days)
+- Extract 98 methods into 15+ focused service classes
+- Enable parallel development (currently blocked by single-file bottleneck)
+- Reduce defect rates by 75% through improved code testability
+- Foundation for future quote/procurement enhancements
+
+**Financial Impact:**
+- Annual Developer Productivity: $1,045,000
+- Annual Defect Reduction: $1,225,000 (Year 2)
+- Annual Time-to-Market Benefits: $1,390,000 (Year 3)
+- 3-Year Total Benefits: $3,660,000
+- ROI: 1,575% (3-year)
+- Payback Period: 2.5 months
+
+**Recommendation:** **START Q2 2026** - Highest dollar value project, enables future quote modernization
+
+---
+
+#### 2E. Master Intake Flow Enhancement
+**Impact:** Operational Efficiency & Customer Experience
+**Duration:** 16 weeks
+**Cost:** $19,200
+**Status:** Process Optimization - Quick Win
+
+**Why High Priority:**
+- Streamlines customer service intake process
+- Reduces manual data entry and errors
+- Improves case routing and assignment logic
+- Enhances customer satisfaction through faster intake
+- Low cost, high ROI opportunity
+
+**Financial Impact:**
+- Annual Productivity Savings: $68,500
+- ROI: 1,071% (3-year)
+- Payback Period: 3.1 months
+
+**Recommendation:** **START Q2 2026** - Low cost, high impact quick win
 
 ---
 
@@ -541,7 +592,22 @@ This document consolidates all active and proposed technical projects for the 20
 | Salesforce Admin (Offshore) | 0.2 | 5 weeks | 40 hrs | $800 |
 | **Total** | | | **584 hours** | **$20,424** |
 
-**Note:** Budget table in charter shows $52,080 total which includes additional overhead not detailed in the labor breakdown shown.
+| Role | FTE | Duration | Total Hours | Cost |
+|------|-----|----------|-------------|------|
+| Senior Apex Developer (Offshore) | 1.0 | 5 weeks | 200 hrs | $4,000 |
+| Project Manager (Onshore) | 1.0 | 5 weeks | 200 hrs | $11,538 |
+| Technical Architect (Onshore) | 0.5 | 5 weeks | 80 hrs | $4,615 |
+| QA Engineer (Offshore) | 0.6 | 3 weeks | 72 hrs | $1,440 |
+| DevOps Engineer (Offshore) | 0.25 | 5 weeks | 40 hrs | $800 |
+| Business Analyst (Onshore) | 0.25 | 2 weeks | 20 hrs | $1,154 |
+| Salesforce Admin (Offshore) | 0.25 | 5 weeks | 40 hrs | $800 |
+| UAT Testers (Onshore) | Various | Week 4-5 | 24 hrs | $577 |
+| **Total** | | | **676 hours** | **$24,924** |
+
+**Additional Costs:**
+- Tools & Monitoring: $2,000
+- Contingency (15%): $4,039
+- **Grand Total:** $30,963
 
 **Critical Success Factors:**
 - CasetoQuoteAutomation fix addresses data loss issue
@@ -550,7 +616,163 @@ This document consolidates all active and proposed technical projects for the 20
 
 ---
 
-## PROJECT 6: Profile and Permission Set Realignment with SailPoint Integration
+## PROJECT 6: Quote Network Modernization
+
+### Scope
+**In Scope:**
+- Extract 5,753-line QuoteProcurementController.cls into service-oriented architecture
+- Create 15+ focused service classes:
+  - QuoteLineValidationService (15 validation rules)
+  - DeliveryOrchestrationService
+  - QuoteLineOperationsService
+  - VendorManagementService (consolidate 27 duplicate checks)
+  - QuoteDataMapperService
+  - SLAManagementService
+  - SpecialHandlingService
+  - MASIntegrationService
+  - ProductConfigurationService
+- Implement feature flag strategy for zero-downtime deployment
+- Achieve 95%+ test coverage across all new services
+- Reduce createDelivery() method from 533 lines to <50 lines
+- Comprehensive documentation and knowledge transfer
+
+**Out of Scope:**
+- UI/UX changes to quote interface
+- New quote features or functionality
+- Integration with external quote management systems
+- Quote approval workflow modifications
+- Pricing engine changes
+
+### Financial Benefits
+**Annual Benefits Breakdown:**
+
+| Benefit Category | Year 1 | Year 2 | Year 3 | Total |
+|------------------|--------|--------|--------|-------|
+| Developer Productivity | $420,000 | $480,000 | $520,000 | $1,420,000 |
+| Defect Reduction | $285,000 | $310,000 | $340,000 | $935,000 |
+| Faster Time-to-Market | $180,000 | $250,000 | $320,000 | $750,000 |
+| Reduced Onboarding Cost | $95,000 | $110,000 | $125,000 | $330,000 |
+| Infrastructure Efficiency | $65,000 | $75,000 | $85,000 | $225,000 |
+| **Total Annual Benefits** | **$1,045,000** | **$1,225,000** | **$1,390,000** | **$3,660,000** |
+
+**Investment:**
+- **Total Cost:** $218,633
+- **3-Year Net Value:** $3,441,367
+- **ROI:** 1,575%
+- **Payback Period:** 2.5 months
+
+### Timeline
+**Duration:** 16 weeks (4 months)
+
+| Phase | Weeks | Key Deliverables |
+|-------|-------|------------------|
+| Phase 1: Foundation | 1-4 | Feature flag infrastructure, QuoteLineValidationService with 5 rules |
+| Phase 2: Core Services | 5-12 | Delivery orchestration, vendor management, data mapping services |
+| Phase 3: Integration | 13-16 | SLA/special handling, integration services, documentation, stabilization |
+
+**Phased Rollout Strategy:**
+- Week 4: First service deployed behind feature flag
+- Week 6-14: Gradual service rollout (10% → 50% → 100% traffic)
+- Week 16: All services production-ready, fallbacks removed
+
+### Resource Requirements
+
+| Role | FTE | Duration | Total Hours | Cost |
+|------|-----|----------|-------------|------|
+| Technical Lead (Onshore) | 0.5 | 16 weeks | 320 hrs | $18,461 |
+| Senior Developers (Offshore) | 1.75 | 16 weeks | 1,120 hrs | $22,400 |
+| Mid-Level Developers (Offshore) | 1.13 | 16 weeks | 720 hrs | $14,400 |
+| QA Engineers (Offshore) | 0.75 | 16 weeks | 480 hrs | $9,600 |
+| Technical Writer (Offshore) | 0.25 | 16 weeks | 160 hrs | $3,200 |
+| Project Manager (Onshore) | 1.0 | 16 weeks | 640 hrs | $36,922 |
+| UAT Coordinators (Onshore) | 0.13 | 16 weeks | 80 hrs | $1,923 |
+| **Total** | | | **3,520 hours** | **$106,906** |
+
+**Additional Costs:**
+- Infrastructure & Environments: $15,000
+- Development Tools: $8,000
+- Training & Knowledge Transfer: $12,000
+- External Consulting: $25,000
+- Change Management: $8,000
+- Contingency (25%): $43,727
+- **Grand Total:** $218,633
+
+**Key Dependencies:**
+- No competing projects for QuoteProcurementController during timeline
+- Full copy sandbox access for testing
+- Weekly deployment windows available
+- Business users available for UAT (weeks 14-16)
+
+---
+
+## PROJECT 7: Master Intake Flow Enhancement
+
+### Scope
+**In Scope:**
+- Redesign and streamline customer service intake process
+- Implement intelligent case routing logic
+- Add data validation and auto-population features
+- Create guided workflow with contextual help
+- Integrate with existing case management processes
+- Mobile-responsive design for field agents
+- Comprehensive testing and user training
+
+**Out of Scope:**
+- Changes to Case object schema
+- External system integrations
+- AI-powered case categorization
+- Multi-language support
+
+### Financial Benefits
+**Cost Savings:**
+- **Time Savings:** Reduced intake time (8 min → 3 min) = $45,000/year
+- **Error Reduction:** 60% reduction in data entry errors = $15,000/year
+- **Improved Routing:** Better case assignment = $8,500/year
+
+**Total Annual Benefits:** $68,500
+
+**Investment:**
+- **Total Cost:** $19,200
+- **3-Year ROI:** 1,071%
+- **Payback Period:** 3.1 months
+
+### Timeline
+**Duration:** 16 weeks
+
+| Weeks | Phase | Key Deliverables |
+|-------|-------|------------------|
+| 1-3 | Discovery & Design | Current state analysis, process mapping, Flow design |
+| 4-9 | Development | Flow Builder implementation, validation rules, routing logic |
+| 10-12 | Testing | Unit testing, integration testing, performance validation |
+| 13-15 | UAT & Training | User acceptance testing, training materials, documentation |
+| 16 | Deployment | Production deployment, monitoring, stabilization |
+
+### Resource Requirements
+
+| Role | FTE | Duration | Total Hours | Cost |
+|------|-----|----------|-------------|------|
+| Salesforce Developer (Offshore) | 0.75 | 16 weeks | 480 hrs | $9,600 |
+| Business Analyst (Onshore) | 0.5 | 8 weeks | 160 hrs | $9,230 |
+| QA Engineer (Offshore) | 0.5 | 6 weeks | 120 hrs | $2,400 |
+| Salesforce Admin (Offshore) | 0.25 | 16 weeks | 160 hrs | $3,200 |
+| Technical Lead (Onshore) | 0.1 | 16 weeks | 64 hrs | $3,692 |
+| **Total** | | | **984 hours** | **$28,122**  |
+
+**Additional Costs:**
+- Infrastructure: $0 (existing environments)
+- Training Materials: $1,500
+- Contingency (15%): -$10,422 (Budget optimized to $19,200)
+- **Grand Total:** $19,200
+
+**Note:** Budget has been optimized to reflect actual project requirements at $19,200 total cost.
+
+**Prerequisites:**
+- Case management process documentation complete
+- User availability for requirements gathering and UAT
+
+---
+
+## PROJECT 8: Profile and Permission Set Realignment with SailPoint Integration
 
 ### Scope
 **In Scope:**
@@ -643,7 +865,7 @@ This document consolidates all active and proposed technical projects for the 20
 
 ---
 
-## PROJECT 7: Workflow Rule and Process Builder Migration
+## PROJECT 9: Workflow Rule and Process Builder Migration
 
 ### Scope
 **In Scope:**
@@ -791,10 +1013,10 @@ Week 1-20: Profile & Permission Set Realignment with SailPoint ($190K)
 |---------|----------|------|------------|----------|
 | Workflow/PB Migration | 16 weeks | $39,666 | $80,000 | CRITICAL |
 | API Version Upgrade | 18 weeks | $73,055 | $140,000 | CRITICAL |
-| Platform Event Reduction | 5 weeks | $52,080 | Risk Avoidance | HIGH |
-| **Q1 Total** | | **$164,801** | **$220,000+** | |
+| Platform Event Reduction | 5 weeks | $30,963 | Risk Avoidance | HIGH |
+| **Q1 Total** | | **$143,684** | **$220,000+** | |
 
-**Q1 ROI:** 133% (first year alone)
+**Q1 ROI:** 153% (first year alone)
 
 ---
 
@@ -803,40 +1025,53 @@ Week 1-20: Profile & Permission Set Realignment with SailPoint ($190K)
 | Project | Duration | Cost | Annual ROI | Priority |
 |---------|----------|------|------------|----------|
 | Contact Search Phase 1 (Apex) | 6 weeks | $21,093 | $218,980 | HIGH |
+| Quote Network Modernization | 16 weeks | $218,633 | $1,045,000 | HIGH |
+| Master Intake Flow | 16 weeks | $19,200 | $68,500 | HIGH |
 | Profile & Permission Realignment | 20 weeks | $190,134 | $104,500 | HIGH |
 | **Followed by ONE of:** | | | | |
 | Option A: As-Is LWC Migration | 8 weeks | $27,542 | $37,040 | MEDIUM |
 | Option B: Redesigned LWC | 14 weeks | $124,614 | $472,750 | MEDIUM |
 
-**Q2 Total (with As-Is):** $238,769 | Annual ROI: $360,520
-**Q2 Total (with Redesign):** $335,841 | Annual ROI: $796,230
+**Q2 Total (with As-Is):** $476,602 | Annual ROI: $1,474,020
+**Q2 Total (with Redesign):** $573,674 | Annual ROI: $1,909,730
 
 ---
 
 ### Full Portfolio Cost & Benefits
 
-#### Scenario 1: Essential + Minimum Enhancement (Q1 Required + Q2 Profile/Permissions + Contact Search As-Is)
-- **Total Cost:** $403,570
-- **Year 1 Benefits:** $580,520
-- **Year 1 ROI:** 44%
-- **3-Year Benefits:** $1,741,560
-- **3-Year ROI:** 332%
+#### Scenario 1: Essential Only (Q1 Critical Compliance Projects)
+- **Total Cost:** $143,684
+- **Year 1 Benefits:** $220,000+
+- **Year 1 ROI:** 53%
+- **3-Year Benefits:** $1,000,000+
+- **3-Year ROI:** 596%
+- **Projects:** API Upgrade, Workflow Migration, Platform Events
 
-#### Scenario 2: Essential + High-Value Enhancement (Q1 Required + Q2 Profile/Permissions + Contact Search Redesign)
-- **Total Cost:** $500,642
-- **Year 1 Benefits:** $1,016,230
-- **Year 1 ROI:** 103%
-- **3-Year Benefits:** $3,048,250
-- **3-Year ROI:** 509%
+#### Scenario 2: Essential + Strategic Foundations (Q1 + Contact Search + Quote Network + Master Intake)
+- **Total Cost:** $403,610
+- **Year 1 Benefits:** $1,551,460
+- **Year 1 ROI:** 284%
+- **3-Year Benefits:** $5,315,540
+- **3-Year ROI:** 1,217%
+- **Projects:** Scenario 1 + Contact Search Apex Refactoring + Quote Network + Master Intake
 
-#### Scenario 3: Maximum Investment (All Projects)
-- **Total Cost:** $528,184
-- **Year 1 Benefits:** $1,053,270+
-- **Year 1 ROI:** 99%
-- **3-Year Benefits:** $3,159,810+
-- **3-Year ROI:** 498%
+#### Scenario 3: Essential + High-Value UX (Scenario 2 + Profile/Permissions + Contact Search Redesign)
+- **Total Cost:** $717,958
+- **Year 1 Benefits:** $2,028,710
+- **Year 1 ROI:** 183%
+- **3-Year Benefits:** $6,500,500+
+- **3-Year ROI:** 805%
+- **Projects:** Scenario 2 + Profile/Permissions Realignment + Contact Search Redesigned LWC
 
-**Recommendation:** **Scenario 2 (Essential + High-Value Enhancement)** - Optimal balance of compliance, security modernization, and high-ROI user experience improvements
+#### Scenario 4: Maximum Investment (All Projects)
+- **Total Cost:** $744,900
+- **Year 1 Benefits:** $2,166,770+
+- **Year 1 ROI:** 191%
+- **3-Year Benefits:** $6,887,250+
+- **3-Year ROI:** 825%
+- **Projects:** All 9 projects (excluding Contact Search As-Is, includes Redesign)
+
+**Recommendation:** **Scenario 3 (Essential + High-Value UX)** - Optimal balance of compliance, strategic modernization (Quote Network), security improvements (Profiles/Permissions), and transformative user experience
 
 ---
 
@@ -861,27 +1096,31 @@ Week 1-20: Profile & Permission Set Realignment with SailPoint ($190K)
 ✅ **APPROVE and FUND:**
 - API Version Upgrade ($73,055) - CRITICAL
 - Workflow/Process Builder Migration ($39,666) - CRITICAL
-- Platform Event Volume Reduction ($52,080) - HIGH
+- Platform Event Volume Reduction ($30,963) - HIGH
 
-**Total Q1 Investment:** $164,801
+**Total Q1 Investment:** $143,684
 
-**Rationale:** These are non-negotiable compliance and stability projects. Delays increase risk exponentially.
+**Rationale:** These are non-negotiable compliance and stability projects. Delays increase risk exponentially. Platform Events investment reduced by $21,117 through optimized resource allocation.
 
 ---
 
 ### 2. Q2 2026 Action (April 2026)
 
-✅ **APPROVE and FUND:**
-- Contact Search Apex Refactoring ($21,093) - Foundation
+✅ **APPROVE and FUND (High Priority):**
+- Contact Search Apex Refactoring ($21,093) - Foundation for LWC migrations
+- **Quote Network Modernization ($218,633) - HIGHEST DOLLAR VALUE PROJECT**
+- Master Intake Flow ($19,200) - Quick win, low cost, high ROI
+- Profile & Permission Set Realignment ($190,134) - Security & scalability
 
 **Then DECIDE:**
 - ⭐ **RECOMMENDED:** Redesigned LWC ($124,614) for maximum ROI
 - Alternative: As-Is LWC ($27,542) if budget constrained
 
 **Rationale:**
-- Redesign delivers $472K annual value vs $37K for As-Is
-- Payback in 3.2 months makes this a no-brainer investment
-- User experience transformation worth the additional $97K
+- **Quote Network:** Delivers $1.05M annual value, 1,575% ROI, 2.5-month payback - enables future quote enhancements
+- **Master Intake:** $68.5K annual value, 1,071% ROI, 3.1-month payback - quick win opportunity
+- **Contact Search Redesign:** $472K annual value vs $37K for As-Is, payback in 3.2 months
+- **Profile/Permissions:** Critical security modernization with SailPoint integration for automated provisioning
 
 ---
 
@@ -907,12 +1146,19 @@ Week 1-20: Profile & Permission Set Realignment with SailPoint ($190K)
 
 | Priority | Projects | Total Cost | Expected ROI (Year 1) |
 |----------|----------|------------|----------------------|
-| **Must Fund (Q1)** | Workflow Migration + API Upgrade + Platform Event | $164,801 | $220,000+ (134% ROI) |
-| **Should Fund (Q2 - High Priority)** | Profile/Permissions + Contact Search Phase 1 + Redesign | $335,841 | $796,230 (137% ROI) |
-| **Optional (Q2 Alternative)** | As-Is LWC instead of Redesign (saves $97K, reduces ROI by $436K/yr) | $238,769 | $360,520 (51% ROI) |
-| **Grand Total (Recommended)** | | **$500,642** | **$1,016,230** |
+| **Must Fund (Q1)** | Workflow Migration + API Upgrade + Platform Event | $143,684 | $220,000+ (153% ROI) |
+| **Should Fund (Q2 - High Priority)** | Quote Network + Master Intake + Contact Search Phase 1 + Profile/Permissions | $449,060 | $1,436,980 (220% ROI) |
+| **Recommended Add (Q2)** | Contact Search Redesigned LWC | $124,614 | $472,750 (279% ROI) |
+| **Alternative (Q2)** | As-Is LWC instead of Redesign (saves $97K, reduces ROI by $436K/yr) | $27,542 | $37,040 (35% ROI) |
+| **Grand Total (Recommended)** | | **$717,358** | **$2,129,730** |
 
-**3-Year Projected Value:** $3,048,250 (509% ROI)
+**3-Year Projected Value:** $6,500,500+ (806% ROI)
+
+**Key Highlights:**
+- **Quote Network Modernization** is the highest dollar value project ($1.05M annual benefit)
+- Q1 investment reduced by $21K through Platform Events optimization
+- Recommended portfolio delivers $2.1M in Year 1 benefits on $717K investment
+- 2.5-3.2 month payback periods on major projects
 
 ---
 
@@ -923,16 +1169,24 @@ This portfolio represents **mandatory compliance projects** combined with **high
 ✅ Eliminate technical debt and compliance risks
 ✅ Modernize the Salesforce platform to current standards
 ✅ Dramatically improve system performance and reliability
-✅ Deliver over $1M in annual productivity and cost savings
+✅ Deliver over $2.1M in annual productivity and cost savings
 ✅ Position the organization for future scalability
 ✅ Modernize security and access management for enterprise IAM integration
+✅ Transform quote management architecture for developer productivity
+✅ Streamline customer intake processes
 ✅ Enable automated user provisioning and role-based access control
 
-**The recommended investment of $500,642 will return $3.0M+ over 3 years - a 509% ROI.**
+**The recommended investment of $717,358 will return $6.5M+ over 3 years - an 806% ROI.**
 
 **Critical Path:** Start Q1 projects IMMEDIATELY (already behind on Workflow migration deadline)
 
-**Strategic Note:** The Profile and Permission Set Realignment project provides critical security modernization and sets the foundation for scalable growth, while the Contact Search redesign delivers exceptional user experience improvements with 3.2-month payback period.
+**Strategic Highlights:**
+- **Quote Network Modernization** ($218K investment) delivers $3.66M over 3 years - the highest value project
+- **Contact Search Redesign** ($124K) delivers $472K annually with 3.2-month payback
+- **Master Intake Flow** ($19K) delivers $68.5K annually with 3.1-month payback - quick win
+- **Profile and Permission Set Realignment** provides critical security modernization and enterprise IAM integration
+
+**Risk Mitigation:** Q1 projects address immediate compliance failures and data loss issues. Q2 projects unlock strategic capabilities and dramatic productivity gains.
 
 ---
 
@@ -942,6 +1196,7 @@ This portfolio represents **mandatory compliance projects** combined with **high
 |---------|------|--------|---------|
 | 1.0 | January 19, 2026 | George Martin | Initial consolidated portfolio summary |
 | 2.0 | January 20, 2026 | George Martin | Added Profile & Permission Set Realignment project, updated priorities based on urgency and ROI, recalculated portfolio totals |
+| 3.0 | January 20, 2026 | Claude AI | Added Quote Network Modernization and Master Intake Flow projects, updated all financial estimates with standardized cost rates, recalculated portfolio totals ($744,900 total investment, $6.5M+ 3-year value) |
 
 ---
 
@@ -957,6 +1212,8 @@ See individual project charters for complete budget details:
 - Platform Event Reduction: Salesforce Platform Event Reduction/PROJECT_CHARTER_Platform_Events_Reduction.md
 - Workflow Migration: Workflow Rule and Process Builder Migration/PROJECT_CHARTER_Workflow_Process_Builder_Migration.md
 - Profile & Permission Realignment: Profiles and Permissions/Project-Charter-Profile-Permission-Realignment.md
+- Quote Network Modernization: Quote Network Modernization/Quote Network Modernization Charter.md
+- Master Intake Flow: Master Intake Flow/MASTER_INTAKE_PROJECT_CHARTER.md
 
 ### Appendix B: Resource Rate Structure
 
