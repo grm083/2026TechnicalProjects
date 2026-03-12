@@ -110,6 +110,7 @@
         <field>SBQQ__QuoteLine__c.VCRCode__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <description>Manage Material Automated Services (MAS) integration fields on quote lines. DEPRECATED: Renamed to PS_Quote_MAS_Integration.</description>
     <hasActivationRequired>false</hasActivationRequired>
     <label>MAS Permissionset</label>
     <license>Salesforce</license>

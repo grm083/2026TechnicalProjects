@@ -360,6 +360,7 @@
         <field>Service_Approver__c.User__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <description>Configure service approvers, out-of-office delegates, and account-level approval settings. SoD: Cannot be combined with approval decision authority. DEPRECATED: Renamed to PS_Service_Approver_Configuration.</description>
     <hasActivationRequired>false</hasActivationRequired>
     <label>SBS Account Management</label>
     <license>Salesforce</license>

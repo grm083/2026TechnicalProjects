@@ -24,6 +24,7 @@
         <field>Category__c.Validated_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <description>Manage vendor escalation contacts, categories, and maintenance workflows. DEPRECATED: Renamed to PS_Escalation_Maintenance.</description>
     <hasActivationRequired>false</hasActivationRequired>
     <label>Escalation Maintenance Permissions</label>
     <objectPermissions>

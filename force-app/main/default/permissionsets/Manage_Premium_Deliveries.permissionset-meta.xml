@@ -20,6 +20,7 @@
         <field>Case.Premium_Service_Opt_Out__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <description>Manage premium delivery service enrollment on customer accounts. DEPRECATED: Renamed to PS_Premium_Delivery_Management.</description>
     <hasActivationRequired>false</hasActivationRequired>
     <label>Manage Premium Deliveries</label>
     <license>Salesforce</license>

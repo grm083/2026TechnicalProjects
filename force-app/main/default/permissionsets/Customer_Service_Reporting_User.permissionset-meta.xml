@@ -4,6 +4,7 @@
         <apexClass>SupervisorDashboardCls</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+    <description>Customer service supervisor reporting and dashboard access including custom report types, scheduling, and public folder management. DEPRECATED: Renamed to PS_Customer_Service_Reporting.</description>
     <hasActivationRequired>false</hasActivationRequired>
     <label>Customer Service Reporting User</label>
     <pageAccesses>
