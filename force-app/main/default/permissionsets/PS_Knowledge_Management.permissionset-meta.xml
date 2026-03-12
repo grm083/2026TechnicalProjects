@@ -10,9 +10,8 @@
         <field>Knowledge__kav.Question__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <description>Create, edit, publish, and archive knowledge articles. DEPRECATED: Renamed to PS_Knowledge_Management.</description>
     <hasActivationRequired>false</hasActivationRequired>
-    <label>Knowledge_Manager_User</label>
+    <label>Knowledge Management</label>
     <license>Salesforce</license>
     <objectPermissions>
         <allowCreate>true</allowCreate>
@@ -43,4 +42,5 @@
         <enabled>true</enabled>
         <name>ViewDraftArticles</name>
     </userPermissions>
+    <description>Create, edit, and publish knowledge articles.</description>
 </PermissionSet>

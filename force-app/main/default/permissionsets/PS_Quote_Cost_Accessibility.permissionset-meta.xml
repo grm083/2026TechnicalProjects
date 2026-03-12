@@ -160,8 +160,8 @@
         <field>SBQQ__Quote__c.Cost_Price_Override_Reason__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <description>Modify cost-related fields on Quotes and Quote Lines. SoD: Cannot be combined with Price_Accessibility_Permission_Set — a user who controls both price and cost can manipulate margins without oversight. DEPRECATED: Renamed to PS_Quote_Cost_Accessibility.</description>
     <hasActivationRequired>false</hasActivationRequired>
-    <label>Cost Accessibility Permission Set</label>
+    <label>Quote Cost Accessibility</label>
     <license>Salesforce</license>
+    <description>Modify cost-related fields on Quotes and Quote Lines. SoD: Cannot be combined with PS_Quote_Price_Accessibility (A1) — a user who controls both price and cost can manipulate margins without oversight.</description>
 </PermissionSet>

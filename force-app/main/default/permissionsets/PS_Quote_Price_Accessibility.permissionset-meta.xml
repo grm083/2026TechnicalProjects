@@ -2,116 +2,126 @@
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.ByPassMASServiceChange__c</field>
+        <field>SBQQ__ProductOption__c.PriceUOM__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.BypassPriceReview__c</field>
+        <field>SBQQ__QuoteLine__c.HoldUntilPosted__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.DoNotCreateMASTicket__c</field>
+        <field>SBQQ__QuoteLine__c.PriceIncrement1__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.DoNotCreateTaskGridTickets__c</field>
+        <field>SBQQ__QuoteLine__c.PriceIncrement2__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.MASAccount__c</field>
+        <field>SBQQ__QuoteLine__c.PriceIncrement3__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.MASBox__c</field>
+        <field>SBQQ__QuoteLine__c.PriceIncrement4__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.MASCompany__c</field>
+        <field>SBQQ__QuoteLine__c.PriceMinQuantity__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.MASCustomerUniqueId__c</field>
+        <field>SBQQ__QuoteLine__c.PricePrice1__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.MASDeliveryComment__c</field>
+        <field>SBQQ__QuoteLine__c.PricePrice2__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.MASDelivery__c</field>
+        <field>SBQQ__QuoteLine__c.PricePrice3__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.MASLibrary__c</field>
+        <field>SBQQ__QuoteLine__c.PricePrice4__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.MASNewTicketComment__c</field>
+        <field>SBQQ__QuoteLine__c.PriceUOM__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.MASNewTicket__c</field>
+        <field>SBQQ__QuoteLine__c.PriceUpTo1__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.MASOpsRoutingComment__c</field>
+        <field>SBQQ__QuoteLine__c.PriceUpTo2__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.MASOpsRouting__c</field>
+        <field>SBQQ__QuoteLine__c.PriceUpTo3__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.MASRemovalComment__c</field>
+        <field>SBQQ__QuoteLine__c.PriceUpTo4__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.MASRemoval__c</field>
+        <field>SBQQ__QuoteLine__c.Price_Override_Description__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.MASServiceLine__c</field>
+        <field>SBQQ__QuoteLine__c.Price_Override_Reason__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.MAS_SwapoutComment__c</field>
+        <field>SBQQ__QuoteLine__c.Pricing_API_Method__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.MAS_Swapout__c</field>
+        <field>SBQQ__QuoteLine__c.SBQQ__ListPrice__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.SetupComment__c</field>
+        <field>SBQQ__QuoteLine__c.SBQQ__PricingMethod__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>SBQQ__QuoteLine__c.Service_Action__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.VCRCode__c</field>
+        <field>SBQQ__Quote__c.Cost_Price_Override_Description__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <description>Manage Material Automated Services (MAS) integration fields on quote lines. DEPRECATED: Renamed to PS_Quote_MAS_Integration.</description>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SBQQ__Quote__c.Cost_Price_Override_Reason__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <hasActivationRequired>false</hasActivationRequired>
-    <label>MAS Permissionset</label>
+    <label>Quote Price Accessibility</label>
     <license>Salesforce</license>
+    <description>Modify price-related fields on Quotes and Quote Lines. SoD: Cannot be combined with PS_Quote_Cost_Accessibility (A2) — a user who controls both price and cost can manipulate margins without oversight.</description>
 </PermissionSet>

@@ -1,117 +1,140 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Modify billing model, PO requirements, payment terms, tax settings, and other financial configuration on accounts. SoD: Cannot be combined with PS_Account_Management in roles where financial configuration must be authorized separately.</description>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.ByPassMASServiceChange__c</field>
+        <field>Account.A_R_Balance__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.BypassPriceReview__c</field>
+        <field>Account.Bill_Audit_Threshold_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.DoNotCreateMASTicket__c</field>
+        <field>Account.Bill_Audit_Threshold_Value__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.DoNotCreateTaskGridTickets__c</field>
+        <field>Account.Bill_By_Recon__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.MASAccount__c</field>
+        <field>Account.Bill_by_Recon_Effective_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.MASBox__c</field>
+        <field>Account.Billing_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.MASCompany__c</field>
+        <field>Account.Billing_Model__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.MASCustomerUniqueId__c</field>
+        <field>Account.Billing_Schedule__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.MASDeliveryComment__c</field>
+        <field>Account.Billing_Window__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.MASDelivery__c</field>
+        <field>Account.Deposit_Required__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.MASLibrary__c</field>
+        <field>Account.Enrolled_in_Premium_Delivery_Service__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.MASNewTicketComment__c</field>
+        <field>Account.Federal_Tax_Id__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.MASNewTicket__c</field>
+        <field>Account.GL_Account__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.MASOpsRoutingComment__c</field>
+        <field>Account.Invoice_Method__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.MASOpsRouting__c</field>
+        <field>Account.Invoice_Schedule__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.MASRemovalComment__c</field>
+        <field>Account.Local_Billing_Allowed__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.MASRemoval__c</field>
+        <field>Account.PO_Required__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.MASServiceLine__c</field>
+        <field>Account.Payment_Methods__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.MAS_SwapoutComment__c</field>
+        <field>Account.Payment_Terms_Type_II__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.MAS_Swapout__c</field>
+        <field>Account.Payment_Terms__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.SetupComment__c</field>
+        <field>Account.Permit_Fee_Required__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.VCRCode__c</field>
+        <field>Account.Prepayment_Required__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <description>Manage Material Automated Services (MAS) integration fields on quote lines. DEPRECATED: Renamed to PS_Quote_MAS_Integration.</description>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Require_Billing_Audit__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.SBQQ__TaxExempt__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Tax_Classification__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <hasActivationRequired>false</hasActivationRequired>
-    <label>MAS Permissionset</label>
-    <license>Salesforce</license>
+    <label>Account Financial Configuration</label>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Account</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
 </PermissionSet>

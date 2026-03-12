@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Destructive Changes Manifest for Permission Set Renames
+
+    Deploy this AFTER deploying the new PS_ prefixed permission sets.
+    This removes the old API names from the org.
+
+    IMPORTANT: Before deploying, ensure all PSG assignments and
+    references have been updated to use the new API names.
+
+    Usage: sf project deploy start -d . -\-post-destructive-changes destructiveChanges.xml
+-->
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>Price_Accessibility_Permission_Set</members>
+        <members>Cost_Accessibility_Permission_Set</members>
+        <members>CPQReadOnly</members>
+        <members>MAS_Permissionset</members>
+        <members>Pricing_Access</members>
+        <members>Pricing_Read_Only</members>
+        <members>STP_Administration</members>
+        <members>Task_Genesys_Routing_Permission</members>
+        <members>Reports_and_Dashboards_Administrator</members>
+        <members>Reports_and_Dashboards_Super_User</members>
+        <members>Customer_Service_Reporting_User</members>
+        <members>Merge_Access_for_Non_Admin_Users</members>
+        <members>Knowledge_Manager_User</members>
+        <members>MAA_Admin_Panel_Team</members>
+        <members>Escalation_Maintenance_Permissions</members>
+        <members>Digital_Transformation_Time_Tacking</members>
+        <members>Account_Notification_Maintenance</members>
+        <members>Manage_Premium_Deliveries</members>
+        <members>View_Setup_and_Configuration</members>
+        <members>Project_Services_Project_Management</members>
+        <members>Governance_Team</members>
+        <members>Manage_Flows</members>
+        <members>Launch_Fast</members>
+        <members>Modify_All_Data</members>
+        <members>Password_Never_Expires</members>
+        <members>Business_Rule_Notification</members>
+        <members>SBS_Account_Management</members>
+        <members>AAV_Availability_Stand_Alone_Tool</members>
+        <members>Asset_Availability_User_Permission_Set</members>
+        <members>Contact_Notification_Maintenance</members>
+        <name>PermissionSet</name>
+    </types>
+    <version>59.0</version>
+</Package>

@@ -401,9 +401,8 @@
         <field>SBQQ__Quote__c.Integration_Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <description>Create and process pricing requests through the full workflow including API integration. SoD: Cannot be combined with STP_Administration — setting eligibility criteria and executing pricing must be separate. DEPRECATED: Renamed to PS_Pricing_Request_Execution.</description>
     <hasActivationRequired>false</hasActivationRequired>
-    <label>Pricing Access</label>
+    <label>Pricing Request Execution</label>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>false</allowDelete>
@@ -421,4 +420,5 @@
         <tab>Pricing_Request__c</tab>
         <visibility>Visible</visibility>
     </tabSettings>
+    <description>Create and process pricing requests through the full workflow including API integration. SoD: Cannot be combined with PS_STP_Administration — setting eligibility criteria and executing pricing must be separate.</description>
 </PermissionSet>

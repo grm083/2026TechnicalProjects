@@ -360,9 +360,8 @@
         <field>Service_Approver__c.User__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <description>Configure service approvers, out-of-office delegates, and account-level approval settings. SoD: Cannot be combined with approval decision authority. DEPRECATED: Renamed to PS_Service_Approver_Configuration.</description>
     <hasActivationRequired>false</hasActivationRequired>
-    <label>SBS Account Management</label>
+    <label>Service Approver Configuration</label>
     <license>Salesforce</license>
     <objectPermissions>
         <allowCreate>false</allowCreate>
@@ -465,4 +464,5 @@
         <tab>standard-Entitlement</tab>
         <visibility>Visible</visibility>
     </tabSettings>
+    <description>Configure who the approvers are for each business rule, including NTE amounts, fuzzy matching, and contact/email settings. SoD: Cannot be combined with PS_Approval_Decision — configuring approvers and being an approver creates a self-approval risk.</description>
 </PermissionSet>

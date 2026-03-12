@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
-    <description>Full administrative data modification across all objects. System admin only — grants ModifyAllData, ViewAllData, and full CRUD on all custom objects. DEPRECATED: Renamed to PS_Modify_All_Data.</description>
+    <description>Full administrative data modification across all objects. System admin only — grants ModifyAllData, ViewAllData, and full CRUD on all custom objects.</description>
     <hasActivationRequired>false</hasActivationRequired>
     <label>Modify All Data</label>
     <license>Salesforce</license>

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
-    <description>View-only access to org setup, configuration, and role hierarchy. DEPRECATED: Renamed to PS_View_Setup.</description>
     <hasActivationRequired>false</hasActivationRequired>
-    <label>View Setup and Configuration</label>
+    <label>View Setup</label>
     <userPermissions>
         <enabled>true</enabled>
         <name>ViewRoles</name>
@@ -11,4 +10,5 @@
         <enabled>true</enabled>
         <name>ViewSetup</name>
     </userPermissions>
+    <description>View-only access to org setup and configuration.</description>
 </PermissionSet>

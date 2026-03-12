@@ -1,26 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
-    <description>Create and customize reports and dashboards. DEPRECATED: Renamed to PS_Report_Creator.</description>
+    <description>Manage and execute flows with elevated permissions.</description>
     <hasActivationRequired>false</hasActivationRequired>
-    <label>Reports and Dashboards Super User</label>
+    <label>Flow Management</label>
     <userPermissions>
         <enabled>true</enabled>
-        <name>CreateCustomizeDashboards</name>
+        <name>ManageInteraction</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>CreateCustomizeReports</name>
+        <name>RunFlow</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>RunReports</name>
+        <name>ViewRoles</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>ViewPublicDashboards</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ViewPublicReports</name>
+        <name>ViewSetup</name>
     </userPermissions>
 </PermissionSet>

@@ -1,117 +1,114 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <classAccesses>
+        <apexClass>BillingService</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <description>Modify billing, pricing, PO, and charge-related fields on cases. Restricted to roles with financial authority. SoD: Cannot be combined with PS_Case_Lifecycle_Management in roles where financial segregation is required.</description>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.ByPassMASServiceChange__c</field>
+        <field>Case.CPQ_New_Service__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.BypassPriceReview__c</field>
+        <field>Case.Chargeable__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.DoNotCreateMASTicket__c</field>
+        <field>Case.Cost_of_bale_wire_per_unit__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.DoNotCreateTaskGridTickets__c</field>
+        <field>Case.Disputed_Amount__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.MASAccount__c</field>
+        <field>Case.Documentation_of_cost__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.MASBox__c</field>
+        <field>Case.Haul_Away_Service_Booked__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.MASCompany__c</field>
+        <field>Case.Invoice_Number__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.MASCustomerUniqueId__c</field>
+        <field>Case.IsOpportunity_Created__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.MASDeliveryComment__c</field>
+        <field>Case.Is_Haul_Away_Service__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.MASDelivery__c</field>
+        <field>Case.Locally_Billed__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.MASLibrary__c</field>
+        <field>Case.No_Price__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.MASNewTicketComment__c</field>
+        <field>Case.Override_PO_Create_Task__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.MASNewTicket__c</field>
+        <field>Case.Price_Quote_Identifier__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.MASOpsRoutingComment__c</field>
+        <field>Case.PurchaseOrder_Number__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.MASOpsRouting__c</field>
+        <field>Case.PurchaseOrder_Override_Reason__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.MASRemovalComment__c</field>
+        <field>Case.PurchaseOrder_Required__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.MASRemoval__c</field>
+        <field>Case.Quantity_of_bale_wire_needed_per_cost__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.MASServiceLine__c</field>
+        <field>Case.Quote_Eligibility_Result__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.MAS_SwapoutComment__c</field>
+        <field>Case.SalesMeet_Price__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.MAS_Swapout__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.SetupComment__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>SBQQ__QuoteLine__c.VCRCode__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <description>Manage Material Automated Services (MAS) integration fields on quote lines. DEPRECATED: Renamed to PS_Quote_MAS_Integration.</description>
     <hasActivationRequired>false</hasActivationRequired>
-    <label>MAS Permissionset</label>
-    <license>Salesforce</license>
+    <label>Case Financial</label>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Case</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
 </PermissionSet>
